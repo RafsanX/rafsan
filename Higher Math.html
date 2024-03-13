@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Higher Math</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        nav {
+            background-color: #444;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        section {
+            padding: 20px;
+            text-align: center;
+        }
+        section a {
+            display: inline-block;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #00A798;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            width: 45%; /* Adjust the width to fit two links in one line */
+            box-sizing: border-box; /* Include padding and border in the width calculation */
+        }
+        section a:hover {
+            background-color: #0056b3;
+        }
+        .papers {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .paper-title {
+            flex: 1;
+            margin: 0;
+        }
+
+        /* Increase space between specific pairs of links */
+        .custom-link:nth-child(odd) {
+            margin-right: 60px;
+        }
+        /* Make specific links #00A798 */
+        a[href*="ম্যাট্রিক্স ও নির্ণায়ক"],
+        a[href*="সরলরেখা"],
+        a[href*="বৃত্ত"],
+        a[href*="সংযুক্ত কোণের ত্রিকোণমিতিক অনুপাত"],
+        a[href*="অন্তরীকরণ"],
+        a[href*="যোগজীকরণ"] {
+            background-color: #00A798;
+        }
+
+        /* Make specific links #442F91 */
+        a[href*="জটিল সংখ্যা"],
+        a[href*="বহুপদী ও বহুপদী সমীকরণ"],
+        a[href*="কণিক"],
+        a[href*="বিপরীত ত্রিকোণমিতিক ফাংশন ও ত্রিকোণমিতিক সমীকরণ"],
+        a[href*="স্থিতিবিদ্যা"],
+        a[href*="সমতলে বস্তুকণার গতি"] {
+            background-color: #442F91;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Higher Math</h1>
+        <nav>
+            <a href="Homepage.html">Homepage</a>
+            <a href="All Subjects.html">All Subjects</a>
+        </nav>
+    </header>
+    <section>
+        <div class="papers">
+            <h2 class="paper-title">Higher Math 1st Paper</h2>
+            <h2 class="paper-title">Higher Math 2nd Paper</h2>
+        </div>
+        <div>
+            <a class="website-link custom-link" href="ম্যাট্রিক্স ও নির্ণায়ক.html">ম্যাট্রিক্স ও নির্ণায়ক</a>
+            <a class="website-link custom-link" href="জটিল সংখ্যা.html">জটিল সংখ্যা</a>
+        </div>
+        <div>
+            <a class="website-link custom-link" href="সরলরেখা.html">সরলরেখা</a>
+            <a class="website-link custom-link" href="বহুপদী ও বহুপদী সমীকরণ.html">বহুপদী ও বহুপদী সমীকরণ</a>
+        </div>
+        <div>
+            <a class="website-link custom-link" href="বৃত্ত.html">বৃত্ত</a>
+            <a class="website-link custom-link" href="কণিক.html">কণিক</a>
+        </div>
+        <div>
+            <a class="website-link custom-link" href="সংযুক্ত কোণের ত্রিকোণমিতিক অনুপাত.html">সংযুক্ত কোণের ত্রিকোণমিতিক অনুপাত</a>
+            <a class="website-link custom-link" href="বিপরীত ত্রিকোণমিতিক ফাংশন ও ত্রিকোণমিতিক সমীকরণ.html">বিপরীত ত্রিকোণমিতিক ফাংশন ও ত্রিকোণমিতিক সমীকরণ</a>
+        </div>
+        <div>
+            <a class="website-link custom-link" href="অন্তরীকরণ.html">অন্তরীকরণ</a>
+            <a class="website-link custom-link" href="স্থিতিবিদ্যা.html">স্থিতিবিদ্যা</a>
+        </div>
+        <div>
+            <a class="website-link custom-link" href="যোগজীকরণ.html">যোগজীকরণ</a>
+            <a class="website-link custom-link" href="সমতলে বস্তুকণার গতি.html">সমতলে বস্তুকণার গতি</a>
+        </div>
+    </section>
+</body>
+</html>

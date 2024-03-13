@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biology</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        nav {
+            background-color: #444;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        section {
+            padding: 20px;
+            text-align: center;
+        }
+        section a {
+            display: inline-block;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #008000;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            width: 45%; /* Adjust the width to fit two links in one line */
+            box-sizing: border-box; /* Include padding and border in the width calculation */
+        }
+        section a:hover {
+            background-color: #0056b3;
+        }
+        .papers {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .paper-title {
+            flex: 1;
+            margin: 0;
+        }
+        /* Increase space between specific pairs of links */
+        .custom-link:nth-child(odd) {
+            margin-right: 60px;
+        }
+        
+        /* Make specific links green */
+        a[href*="কোষ ও এর গঠন"],
+        a[href*="কোষ বিভাজন"],
+        a[href*="অণুজীব"],
+        a[href*="নগ্নবীজী ও আবৃতবীজী উদ্ভিদ"],
+        a[href*="টিস্যু ও টিস্যুতন্ত্র"],
+        a[href*="উদ্ভিদ শারীরতত্ত্ব"],
+        a[href*="জীবপ্রযুক্তি"] {
+            background-color: #008000;
+        }
+
+        /* Make specific links red */
+        a[href*="প্রাণির বিভিন্নতা ও শ্রেণিবিন্যাস"],
+        a[href*="হাইড্রা"],
+        a[href*="ঘাসফড়িং"],
+        a[href*="রুই মাছ"],
+        a[href*="পরিপাক ও শোষণ"],
+        a[href*="রক্ত সংবহন"],
+        a[href*="শ্বসন ও শ্বাসক্রিয়া"],
+        a[href*="চলন ও অঙ্গচালনা"],
+        a[href*="জিনতত্ত্ব ও বিবর্তন"] {
+            background-color: #FF0000;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Biology</h1>
+        <nav>
+            <a href="Homepage.html">Homepage</a>
+            <a href="All Subjects.html">All Subjects</a>
+        </nav>
+    </header>
+    <section>
+        <div class="papers">
+            <h2 class="paper-title">Botany</h2>
+            <h2 class="paper-title">Zoology</h2>
+        </div>
+        <div>
+            <a class="website-link custom-link" href="কোষ ও এর গঠন.html">কোষ ও এর গঠন</a>
+            <a class="website-link custom-link" href="প্রাণির বিভিন্নতা ও শ্রেণিবিন্যাস.html">প্রাণির বিভিন্নতা ও শ্রেণিবিন্যাস</a>
+        </div>
+        <div>
+            <a class="website-link custom-link" href="কোষ বিভাজন.html">কোষ বিভাজন</a>
+            <a class="website-link custom-link" href="হাইড্রা.html">হাইড্রা</a>
+        </div>
+        <div>
+            <a class="website-link custom-link" href="অণুজীব.html">অণুজীব</a>
+            <a class="website-link custom-link" href="ঘাসফড়িং.html">ঘাসফড়িং</a>
+        </div>
+        <div>
+            <a class="website-link custom-link" href="নগ্নবীজী ও আবৃতবীজী উদ্ভিদ.html">নগ্নবীজী ও আবৃতবীজী উদ্ভিদ</a>
+            <a class="website-link custom-link" href="রুই মাছ.html">রুই মাছ</a>
+        </div>
+        <div>
+            <a class="website-link custom-link" href="টিস্যু ও টিস্যুতন্ত্র.html">টিস্যু ও টিস্যুতন্ত্র</a>
+            <a class="website-link custom-link" href="পরিপাক ও শোষণ.html">পরিপাক ও শোষণ</a>
+        </div>
+        <div>
+            <a class="website-link custom-link" href="উদ্ভিদ শারীরতত্ত্ব.html">উদ্ভিদ শারীরতত্ত্ব</a>
+            <a class="website-link custom-link" href="রক্ত সংবহন.html">রক্ত সংবহন</a>
+        </div>
+        <div>
+            <a class="website-link custom-link" href="জীবপ্রযুক্তি.html">জীবপ্রযুক্তি</a>
+            <a class="website-link custom-link" href="শ্বসন ও শ্বাসক্রিয়া.html">শ্বসন ও শ্বাসক্রিয়া</a>
+        </div>
+        <div>
+            <a class="website-link custom-link" href="">-</a>
+            <a class="website-link custom-link" href="চলন ও অঙ্গচালনা.html">চলন ও অঙ্গচালনা</a>
+        </div>
+        <div>
+            <a class="website-link custom-link" href="">-</a>
+            <a class="website-link custom-link" href="জিনতত্ত্ব ও বিবর্তন.html">জিনতত্ত্ব ও বিবর্তন</a>
+        </div>
+     </section>
+</body>
+</html>
