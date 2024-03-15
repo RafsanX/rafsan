@@ -1,1 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bangla 1st</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        nav {
+            background-color: #444;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        section {
+            padding: 20px;
+            text-align: center;
+        }
+        section a {
+            display: inline-block;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #008000;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            width: 45%; /* Adjust the width to fit two links in one line */
+            box-sizing: border-box; /* Include padding and border in the width calculation */
+        }
+        section a:hover {
+            background-color: #0056b3;
+        }
+        .papers {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .paper-title {
+            flex: 1;
+            margin: 0;
+        }
+        /* Increase space between specific pairs of links */
+        .custom-link:nth-child(odd) {
+            margin-right: 60px;
+        }
+        
+        /* Make specific links green */
+        a[href*="অপরিচিতা"],
+        a[href*="বিলাসী"],
+        a[href*="আমার পথ"],
+        a[href*="মানব-কল্যাণ"],
+        a[href*="মাসি-পিসি"],
+        a[href*="বায়ান্নর দিনগুলো"],
+        a[href*="রেইনকোট"],
+        a[href*="উপন্যাস-লালসালু"] {
+            background-color: #008000;
+        }
 
+        /* Make specific links red */
+        a[href*="সোনার তরী"],
+        a[href*="বিদ্রোহী"],
+        a[href*="প্রতিদান"],
+        a[href*="তাহারেই পড়ে মনে"],
+        a[href*="ফেব্রুয়ারি ১৯৬৯"],
+        a[href*="আঠারো বছর বয়স"],
+        a[href*="আমি কিংবদন্তির কথা বলছি"],
+        a[href*="নাটক- সিরাজউদ্দৌলা"] {
+            background-color: #FF0000;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bangla 1st</h1>
+        <nav>
+            <a href="Homepage.html">Homepage</a>
+            <a href="All Subjects.html">All Subjects</a>
+        </nav>
+    </header>
+    <section>
+        <div class="papers">
+            <h2 class="paper-title">গদ্য</h2>
+            <h2 class="paper-title">পদ্য</h2>
+            <h2 class="paper-title">উপন্যাস-নাটক</h2>
+        </div>
+        <div>
+            <a class="website-link custom-link" href="অপরিচিতা.html">অপরিচিতা</a>
+            <a class="website-link custom-link" href="সোনার তরী.html">সোনার তরী</a>
+        </div>
+        <div>
+            <a class="website-link custom-link" href="বিলাসী.html">বিলাসী</a>
+            <a class="website-link custom-link" href="বিদ্রোহী.html">বিদ্রোহী</a>
+        </div>
+        <div>
+            <a class="website-link custom-link" href="আমার পথ.html">আমার পথ</a>
+            <a class="website-link custom-link" href="প্রতিদান.html">প্রতিদান</a>
+        </div>
+        <div>
+            <a class="website-link custom-link" href="মানব-কল্যাণ.html">মানব-কল্যাণ</a>
+            <a class="website-link custom-link" href="তাহারেই পড়ে মনে.html">তাহারেই পড়ে মনে</a>
+        </div>
+        <div>
+            <a class="website-link custom-link" href="মাসি-পিসি.html">মাসি-পিসি</a>
+            <a class="website-link custom-link" href="ফেব্রুয়ারি ১৯৬৯.html">ফেব্রুয়ারি ১৯৬৯</a>
+        </div>
+        <div>
+            <a class="website-link custom-link" href="বায়ান্নর দিনগুলো.html">বায়ান্নর দিনগুলো</a>
+            <a class="website-link custom-link" href="আঠারো বছর বয়স.html">আঠারো বছর বয়স</a>
+        </div>
+        <div>
+            <a class="website-link custom-link" href="রেইনকোট.html">রেইনকোট</a>
+            <a class="website-link custom-link" href="আমি কিংবদন্তির কথা বলছি.html">আমি কিংবদন্তির কথা বলছি</a>
+        </div>
+        <div>
+            <a class="website-link custom-link" href="উপন্যাস-লালসালু">উপন্যাস-লালসালু</a>
+            <a class="website-link custom-link" href="নাটক- সিরাজউদ্দৌলা.html">নাটক- সিরাজউদ্দৌলা</a>
+        </div>
+     </section>
+</body>
+</html>
