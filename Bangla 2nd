@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bangla 2nd</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        nav {
+            background-color: #444;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        section {
+            padding: 20px;
+            text-align: center;
+        }
+        section a {
+            display: inline-block;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #008000;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            width: 45%; /* Adjust the width to fit two links in one line */
+            box-sizing: border-box; /* Include padding and border in the width calculation */
+        }
+        section a:hover {
+            background-color: #000;
+        }
+        .papers {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .paper-title {
+            flex: 1;
+            margin: 0;
+        }
+        /* Increase space between specific pairs of links */
+        .custom-link:nth-child(odd) {
+            margin-right: 1px;
+        }
+        .custom-link {
+            height: 40px; /* Adjust height as needed */
+            width: 1295px; /* Adjust width as needed */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bangla 2nd</h1>
+        <nav>
+            <a href="Homepage.html">Homepage</a>
+            <a href="All Subjects.html">All Subjects</a>
+        </nav>
+    </header>
+    <section>
+        <div class="papers">
+            <h2 class="paper-title">ব্যাকরণ</h2>
+        </div>
+        <div>
+            <a class="website-link custom-link" href="বাংলা উচ্চারণের নিয়ম.html">বাংলা উচ্চারণের নিয়ম</a>
+        </div>
+        <div>
+            <a class="website-link custom-link" href="বাংলা বানানের নিয়ম.html">বাংলা বানানের নিয়ম</a>
+        </div>
+        <div>
+            <a class="website-link custom-link" href="বাংলা ভাষার ব্যাকরণিক শব্দশ্রেণি.html">বাংলা ভাষার ব্যাকরণিক শব্দশ্রেণি</a>
+        </div>
+        <div>
+            <a class="website-link " href="উপসর্গ.html">উপসর্গ</a>
+            <a class="website-link " href="সমাস.html">সমাস</a>
+        </div>
+        <div>
+            <a class="website-link custom-link" href="বাক্যতত্ত্ব.html">বাক্যতত্ত্ব</a>
+        </div>
+        <div>
+            <a class="website-link custom-link" href="বাংলা ভাষার অপপ্রয়োগ ও শুদ্ধ প্রয়োগ.html">বাংলা ভাষার অপপ্রয়োগ ও শুদ্ধ প্রয়োগ</a>
+        </div>
+     </section>
+     <section>
+        <div class="papers">
+            <h2 class="paper-title">নির্মিতি</h2>
+        </div>
+        <div>
+            <a class="website-link " href="পারিভাষিক শব্দ.html">পারিভাষিক শব্দ</a>
+            <a class="website-link " href="অনুবাদ.html">অনুবাদ</a>
+        </div>
+        <div>
+            <a class="website-link " href="দিনলিপি লিখন.html">দিনলিপি লিখন</a>
+            <a class="website-link " href="প্রতিবেদন রচনা.html">প্রতিবেদন রচনা</a>
+        </div>
+        <div>
+            <a class="website-link " href="বৈদ্যুতিন চিঠি.html">বৈদ্যুতিন চিঠি</a>
+            <a class="website-link " href="আবেদনপত্র.html">আবেদনপত্র</a>
+        </div>
+        <div>
+            <a class="website-link " href="সারাংশ ও সারমর্ম.html">সারাংশ ও সারমর্ম</a>
+            <a class="website-link " href="ভাবসম্প্রসারণ.html">ভাবসম্প্রসারণ</a>
+        </div>
+        <div>
+            <a class="website-link " href="সংলাপ.html">সংলাপ</a>
+            <a class="website-link " href="খুদেগল্প লিখন.html">খুদেগল্প লিখন</a>
+        </div>
+        <div>
+            <a class="website-link custom-link" href="প্রবন্ধ-নিবন্ধ রচনা.html">প্রবন্ধ-নিবন্ধ রচনা</a>
+        </div>
+     </section>
+</body>
+</html>
