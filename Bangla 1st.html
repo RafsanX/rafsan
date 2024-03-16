@@ -85,6 +85,23 @@
         a[href*="সিরাজউদ্দৌলা"] {
             background-color: #F0532D;
         }
+        .lecture-group {
+            display: flex; /* Use flexbox */
+            justify-content: space-between; /* Distribute items evenly along the main axis */
+            margin-bottom: 20px; /* Adjust margin as needed */
+        }
+        .website-link {
+            display: inline-block;
+            margin-bottom: -10px;
+            padding: 10px;
+            background-color: #F0532D;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            width: 50%; /* Adjust the width to fit two links in one line */
+            box-sizing: border-box; /* Include padding and border in the width calculation */
+        }
+
     </style>
 </head>
 <body>
@@ -100,31 +117,31 @@
             <h2 class="paper-title">গদ্য</h2>
             <h2 class="paper-title">পদ্য</h2>
         </div>
-        <div>
+        <div class="lecture-group">
             <a class="website-link custom-link" href="অপরিচিতা.html">অপরিচিতা</a>
             <a class="website-link custom-link" href="সোনার তরী.html">সোনার তরী</a>
         </div>
-        <div>
+        <div class="lecture-group">
             <a class="website-link custom-link" href="বিলাসী.html">বিলাসী</a>
             <a class="website-link custom-link" href="বিদ্রোহী.html">বিদ্রোহী</a>
         </div>
-        <div>
+        <div class="lecture-group">
             <a class="website-link custom-link" href="আমার পথ.html">আমার পথ</a>
             <a class="website-link custom-link" href="প্রতিদান.html">প্রতিদান</a>
         </div>
-        <div>
+        <div class="lecture-group">
             <a class="website-link custom-link" href="মানব-কল্যাণ.html">মানব-কল্যাণ</a>
             <a class="website-link custom-link" href="তাহারেই পড়ে মনে.html">তাহারেই পড়ে মনে</a>
         </div>
-        <div>
+        <div class="lecture-group">
             <a class="website-link custom-link" href="মাসি-পিসি.html">মাসি-পিসি</a>
             <a class="website-link custom-link" href="ফেব্রুয়ারি ১৯৬৯.html">ফেব্রুয়ারি ১৯৬৯</a>
         </div>
-        <div>
+        <div class="lecture-group">
             <a class="website-link custom-link" href="বায়ান্নর দিনগুলো.html">বায়ান্নর দিনগুলো</a>
             <a class="website-link custom-link" href="আঠারো বছর বয়স.html">আঠারো বছর বয়স</a>
         </div>
-        <div>
+        <div class="lecture-group">
             <a class="website-link custom-link" href="রেইনকোট.html">রেইনকোট</a>
             <a class="website-link custom-link" href="আমি কিংবদন্তির কথা বলছি.html">আমি কিংবদন্তির কথা বলছি</a>
         </div>
@@ -134,7 +151,7 @@
             <h2 class="paper-title" align="center">উপন্যাস</h2>
             <h2 class="paper-title" align="center">নাটক</h2>
         </div>
-        <div>
+        <div class="lecture-group">
             <a class="website-link custom-link" href="লালসালু">লালসালু</a>
             <a class="website-link custom-link" href="সিরাজউদ্দৌলা.html">সিরাজউদ্দৌলা</a>
         </div>
