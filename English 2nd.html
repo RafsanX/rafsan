@@ -38,7 +38,7 @@
             display: inline-block;
             margin-bottom: 10px;
             padding: 10px;
-            background-color: #F0532D;
+            background-color: #008000;
             color: #fff;
             text-decoration: none;
             border-radius: 5px;
@@ -59,17 +59,30 @@
         }
         /* Increase space between specific pairs of links */
         .custom-link:nth-child(odd) {
-            margin-right: 1px;
+            margin-right: 6.5%;
         }
-        .custom-link {
-            height: 41.6px; /* Adjust height as needed */
-            width: 100%; /* Adjust width as needed */
+        .lecture-group {
+            display: flex; /* Use flexbox */
+            justify-content: space-between; /* Distribute items evenly along the main axis */
+            margin-bottom: 20px; /* Adjust margin as needed */
         }
+        .website-link {
+            display: inline-block;
+            margin-bottom: -10px;
+            padding: 10px;
+            background-color: #F0532D;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            width: 50%; /* Adjust the width to fit two links in one line */
+            box-sizing: border-box; /* Include padding and border in the width calculation */
+        }
+
     </style>
 </head>
 <body>
     <header>
-        <h1>English 2nd</h1>
+        <h1>v</h1>
         <nav>
             <a href="Homepage.html">Homepage</a>
             <a href="All Subjects.html">All Subjects</a>
@@ -80,43 +93,42 @@
             <h2 class="paper-title">Grammar</h2>
             <h2 class="paper-title">Composition</h2>
         </div>
-        <div>
+        <div class="lecture-group">
 
             <a class="website-link custom-link" href="Gap filling activities without clues(for preposiions).html">Gap filling activities without clues(for preposiions)</a>
             <a class="website-link " href="Formal letter writting.html">Formal letter writting</a>
         </div>
-        <div>
+        <div class="lecture-group">
             <a class="website-link custom-link" href="Gap filling activities with clues(special uses of words and phrases).html">Gap filling activities with clues(special uses of words and phrases)</a>
             <a class="website-link " href="E-mail.html">E-mail</a>
         </div>
-        <div>
+        <div class="lecture-group">
             <a class="website-link custom-link" href="Completing sentences.html">Completing sentences</a>
             <a class="website-link " href="Writting paragraph(by listing).html">Writting paragraph(by listing)</a>
         </div>
-        <div>
+        <div class="lecture-group">
             <a class="website-link custom-link" href="Use of verbs(right form of verbs and subject-verb-agreement as per context).html">Use of verbs(right form of verbs and subject-verb-agreement as per context)</a>
             <a class="website-link " href="Writting paragraph(by description).html">Writting paragraph(by description)</a>
         </div>
-        <div>
+        <div class="lecture-group">
             <a class="website-link custom-link" href="Narrative Style.html">Narrative Style</a>
             <a class="website-link " href="Writting paragraph(comparison and contrast).html">Writting paragraph(comparison and contrast)</a>
        </div>
-       <div>
+       <div class="lecture-group">
             <a class="website-link custom-link" href="Use of modifiers.html">Use of modifiers</a>
             <a class="website-link " href="Writting paragraph(cause and effect).html">Writting paragraph(cause and effect)</a>
        </div>
-       <div>
+       <div class="lecture-group">
             <a class="website-link custom-link" href="Use of sentence connectors.html">Use of sentence connectors</a>
            <a class="website-link " href="">-</a>
        </div>
-       <div>
+       <div class="lecture-group">
             <a class="website-link custom-link" href="Use of synonym and antonym.html">Use of synonym and antonym</a>
            <a class="website-link " href="">-</a>
        </div>
-       <div>
+       <div class="lecture-group">
             <a class="website-link custom-link" href="Punctuation.html">Punctuation</a>
            <a class="website-link " href="">-</a>
        </div>
-     </section>
 </body>
 </html>
