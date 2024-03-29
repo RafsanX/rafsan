@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chemistry</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        nav {
+            background-color: #444;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        section {
+            padding: 20px;
+            text-align: center;
+        }
+        section a {
+            display: inline-block;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #00A798;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            width: 45%; /* Adjust the width to fit two links in one line */
+            box-sizing: border-box; /* Include padding and border in the width calculation */
+        }
+        section a:hover {
+            background-color: #000;
+        }
+        .papers {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .paper-title {
+            flex: 1;
+            margin: 0;
+        }
+
+        /* Increase space between specific pairs of links */
+        .custom-link:nth-child(odd) {
+            margin-right: 6.5%;
+        }
+        /* Make specific links #0072BC */
+        a[href*="গুণগত রসায়ন"],
+        a[href*="মৌলের পর্যায়বৃত্ত ধর্ম ও রাসায়নিক বন্ধন"],
+        a[href*="রাসায়নিক পরিবর্তন"],
+        a[href*="কর্মমুখী রসায়ন"] {
+            background-color: #0072BC;
+        }
+
+        /* Make specific links #00A1E4 */
+        a[href*="পরিবেশ রসায়ন"],
+        a[href*="জৈব রসায়ন"],
+        a[href*="পরিমাণগত রসায়ন"],
+        a[href*="তড়িৎ রসায়ন"] {
+            background-color: #00A1E4;
+        }
+        .lecture-group {
+            display: flex; /* Use flexbox */
+            justify-content: space-between; /* Distribute items evenly along the main axis */
+            margin-bottom: 20px; /* Adjust margin as needed */
+        }
+        .website-link {
+            display: inline-block;
+            margin-bottom: -10px;
+            padding: 10px;
+            background-color: #c40471;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            width: 50%; /* Adjust the width to fit two links in one line */
+            box-sizing: border-box; /* Include padding and border in the width calculation */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Chemistry</h1>
+        <nav>
+            <a href="Homepage.html">Homepage</a>
+            <a href="All Subjects.html">All Subjects</a>
+        </nav>
+    </header>
+    <section>
+        <div class="papers">
+            <h2 class="paper-title">Chemistry 1st Paper</h2>
+            <h2 class="paper-title">Chemistry 2nd Paper</h2>
+        </div>
+        <div class="lecture-group">
+            <a class="website-link custom-link" href="গুণগত রসায়ন.html">গুণগত রসায়ন</a>
+            <a class="website-link custom-link" href="পরিবেশ রসায়ন.html">পরিবেশ রসায়ন</a>
+        </div>
+        <div class="lecture-group">
+            <a class="website-link custom-link" href="মৌলের পর্যায়বৃত্ত ধর্ম ও রাসায়নিক বন্ধন.html">মৌলের পর্যায়বৃত্ত ধর্ম ও রাসায়নিক বন্ধন<br></a>
+            <a class="website-link custom-link" href="জৈব রসায়ন.html">জৈব রসায়ন</a>
+        </div>
+        <div class="lecture-group">
+            <a class="website-link custom-link" href="রাসায়নিক পরিবর্তন.html">রাসায়নিক পরিবর্তন</a>
+            <a class="website-link custom-link" href="পরিমাণগত রসায়ন.html">পরিমাণগত রসায়ন</a>
+        </div>
+        <div class="lecture-group">
+            <a class="website-link custom-link" href="কর্মমুখী রসায়ন.html">কর্মমুখী রসায়ন</a>
+            <a class="website-link custom-link" href="তড়িৎ রসায়ন.html">তড়িৎ রসায়ন</a>
+        </div>
+    </section>
+</body>
+</html>
