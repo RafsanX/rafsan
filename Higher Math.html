@@ -10,6 +10,9 @@
             margin: 0;
             padding: 0;
             background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
         header {
             background-color: #333;
@@ -66,7 +69,7 @@
         a[href*="ম্যাট্রিক্স ও নির্ণায়ক"],
         a[href*="সরলরেখা"],
         a[href*="বৃত্ত"],
-        a[href*="সংযুক্ত কোণের ত্রিকোণমিতিক অনুপাত"],
+        a[href*="ত্রিকোণমিতি"],
         a[href*="অন্তরীকরণ"],
         a[href*="যোগজীকরণ"] {
             background-color: #00A798;
@@ -74,11 +77,11 @@
 
         /* Make specific links #442F91 */
         a[href*="জটিল সংখ্যা"],
-        a[href*="বহুপদী ও বহুপদী সমীকরণ"],
+        a[href*="বহুপদী ও বহুপদী স."],
         a[href*="কণিক"],
-        a[href*="বিপরীত ত্রিকোণমিতিক ফাংশন ও ত্রিকোণমিতিক সমীকরণ"],
+        a[href*="বিপরীত ত্রিকোণমিতি"],
         a[href*="স্থিতিবিদ্যা"],
-        a[href*="সমতলে বস্তুকণার গতি"] {
+        a[href*="সমতলে ব. গতি"] {
             background-color: #442F91;
         }
         .lecture-group {
@@ -96,6 +99,21 @@
             border-radius: 5px;
             width: 50%; /* Adjust the width to fit two links in one line */
             box-sizing: border-box; /* Include padding and border in the width calculation */
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px; /* Increase the padding to increase size vertically */
+            text-align: center;
+            margin-top: auto; /* Push the footer to the bottom */
+            flex-shrink: 0; /* Prevent footer from shrinking */
+        }
+        footer a {
+            color: #fff; /* Set the color to white */
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline; /* Underline on hover */
         }
     </style>
 </head>
@@ -137,5 +155,8 @@
             <a class="website-link custom-link" href="সমতলে বস্তুকণার গতি.html">সমতলে বস্তুকণার গতি</a>
         </div>
     </section>
+    <footer>
+            <a href="https://github.com/RafsanX/rafsan/edit/main/Higher%20Math.html" target="_blank">Edit</a>
+    </footer>
 </body>
 </html>
