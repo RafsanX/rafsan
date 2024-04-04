@@ -17,59 +17,68 @@
         header {
             background-color: #333;
             color: #fff;
-            padding: 10px 0;
+            padding: 10px;
             text-align: center;
         }
         nav {
             background-color: #444;
-            padding: 10px 0;
+            padding: 10px;
             text-align: center;
         }
         nav a {
             color: #fff;
             text-decoration: none;
-            margin: 0 15px;
-            padding: 0px;
-            border-radius: 5px;
+            margin: 0 10px;
         }
         nav a:hover {
-            background-color: #555;
+            text-decoration: underline;
         }
         section {
-            padding: 50px 20px;
+            padding: 20px;
             text-align: center;
-        }
-        section h2 {
-            margin-bottom: 30px;
-            font-size: 24px;
-            color: #333;
         }
         section a {
             display: inline-block;
-            margin-bottom: 30px;
-            padding: 40px;
-            background-color: #c40471;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 200px;
-        }
-        section a:hover {
-            background-color: #c40471;
-        }
-        .lecture-group {
-            text-align: center;
-        }
-        .lecture-group .website-link {
-            margin-bottom: 20px;
-            padding: 15px; /* Adjust height */
-            width: 300px; /* Adjust width */
+            margin-bottom: 10px;
+            padding: 10px;
             background-color: #ED1C24;
             color: #fff;
             text-decoration: none;
-            border-radius: 10px;
+            border-radius: 5px;
+            width: 45%; /* Adjust the width to fit two links in one line */
+            box-sizing: border-box; /* Include padding and border in the width calculation */
         }
-        .lecture-group .website-link:hover {
+        section a:hover {
             background-color: #000;
+        }
+        .papers {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .paper-title {
+            flex: 1;
+            margin: 0;
+        }
+        /* Increase space between specific pairs of links */
+        .custom-link:nth-child(odd) {
+            margin-right: 6.5%;
+        }
+        .lecture-group {
+            display: flex; /* Use flexbox */
+            justify-content: space-between; /* Distribute items evenly along the main axis */
+            margin-bottom: 20px; /* Adjust margin as needed */
+        }
+        .website-link {
+            display: inline-block;
+            margin-bottom: -10px;
+            padding: 10px;
+            background-color: #ED1C24;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            width: 50%; /* Adjust the width to fit two links in one line */
+            box-sizing: border-box; /* Include padding and border in the width calculation */
         }
         footer {
             background-color: #333;
@@ -85,8 +94,7 @@
         }
         footer a:hover {
             text-decoration: underline; /* Underline on hover */
-        }
-    </style>
+        }>
 </head>
 <body>
     <header>
