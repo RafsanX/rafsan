@@ -10,6 +10,9 @@
             margin: 0;
             padding: 0;
             background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
         header {
             background-color: #333;
@@ -68,6 +71,21 @@
         .lecture-group .website-link:hover {
             background-color: #000;
         }
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px; /* Increase the padding to increase size vertically */
+            text-align: center;
+            margin-top: auto; /* Push the footer to the bottom */
+            flex-shrink: 0; /* Prevent footer from shrinking */
+        }
+        footer a {
+            color: #fff; /* Set the color to white */
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
     </style>
 </head>
 <body>
@@ -80,21 +98,84 @@
     </nav>
     </header>
     <section>
-        <h2>অপূর্ব(HSC-25)</h2>
-        <div class="lecture-group">
-            <a class="website-link" href="https://b2m25.aparsclassroom.com/b2m25/Cycle-2/Chapter-4" target="_blank">Class</a>
-            <a class="website-link" href="" target="_blank">Slide</a>
+        <div class="papers">
+            <h2 class="paper-title custom-link">Apurbo (25)</h2>
+            <h2 class="paper-title custom-link">Chinmoy + Apar (24)</h2>
         </div>
-        <h2>চিন্ময়+অপার(HSC-24)</h2>
         <div class="lecture-group">
-            <a class="website-link" href="https://b2m24.aparsclassroom.com/b2m24/Cycle-2/Chapter-4" target="_blank">Class</a>
-            <a class="website-link" href="" target="_blank">Slide</a>
+            <a class="website-link custom-link" href="https://b2m25.aparsclassroom.com/b2m25/Cycle-2/Chapter-4" target="_blank">Class</a>
+            <a class="website-link custom-link" href="https://b2m24.aparsclassroom.com/b2m24/Cycle-2/Chapter-4" target="_blank">Class</a>
         </div>
-        <h2>Udvash FRC</h2>
         <div class="lecture-group">
-            <a class="website-link" href="https://online.udvash-unmesh.com/Content/DisplayContentType?masterCourseId=10&subjectId=88&masterChapterId=558" target="_blank">Class</a>
-            <a class="website-link" href="https://online.udvash-unmesh.com/Content/DisplayContentCardDetails?masterCourseId=10&subjectId=88&masterChapterId=558&masterContentId=1367&masterContentTypeId=10&contentButtonType=note&ln=Bn&videoId=1" target="_blank">CQ Question Bank</a>
+            <a class="website-link custom-link" href="https://drive.google.com/drive/folders/1NwvAC6FoQ3b5XjFNuU6FO_N00sDxJg_v?usp=drive_link" target="_blank">Class Slides</a>
+            <a class="website-link custom-link" href="https://drive.google.com/drive/folders/1NssmShTqFefRdw0jKiKDh3QOj9NJG_fZ?usp=drive_link" target="_blank">Class Slides</a>
         </div>
-    </section>
+     </section>
+     <section>
+        <div class="papers">
+            <h2 class="paper-title custom-link">Chinmoy + Apar (23)</h2>
+            <h2 class="paper-title custom-link">Biggan Class</h2>
+        </div>
+        <div class="lecture-group">
+            <a class="website-link custom-link" href="https://b2m24.aparsclassroom.com/b2m24/Cycle-2/Archive" target="_blank">Class</a>
+            <a class="website-link custom-link" href="https://www.bigganclass.com/s/courses/6501b436e4b059bb184279fb/take" target="_blank">Class</a>
+        </div>
+        <div class="lecture-group">
+            <a class="website-link custom-link" href="https://drive.google.com/drive/folders/15rwxqYiUGuZwZwpdzxryPqIjtkdTxSKq?usp=drive_link" target="_blank">Class Slides</a>
+            <a class="website-link custom-link" href="https://drive.google.com/drive/folders/10tGESa0X35Nh1xAEGRjwoAF09m2I5Icv?usp=drive_link" target="_blank">Class Slides</a>
+        </div>
+     </section>
+     <section>
+        <div class="papers">
+            <h2 class="paper-title custom-link">ACS FRB (Apurbo-24)</h2>
+            <h2 class="paper-title custom-link">ACS FRB (Apar-23)</h2>
+        </div>
+        <div class="lecture-group">
+            <a class="website-link custom-link" href="https://frb24.aparsclassroom.com/Physics/Paper-1/Chapter-4" target="_blank">Class</a>
+            <a class="website-link custom-link" href="https://frb24.aparsclassroom.com/Physics/Paper-1/Chapter-Archive" target="_blank">Class</a>
+        </div>
+        <div class="lecture-group">
+            <a class="website-link custom-link" href="https://drive.google.com/drive/folders/1Olw7a2rcaOu8EWSQ__rLDksPpliexerv?usp=drive_link" target="_blank">Class Slides</a>
+            <a class="website-link custom-link" href="https://drive.google.com/drive/folders/1S_GBT50eC7tz5kixs9K77_DLfGodXh0d?usp=drive_link" target="_blank">Class Slides</a>
+        </div>
+     </section>
+     <section>
+        <div class="papers">
+            <h2 class="paper-title custom-link">Udvash FRC</h2>
+            <h2 class="paper-title custom-link">Udvash Engineering</h2>
+        </div>
+        <div class="lecture-group">
+            <a class="website-link custom-link" href="https://online.udvash-unmesh.com/Content/DisplayContentType?masterCourseId=10&subjectId=88&masterChapterId=558" target="_blank">Class</a>
+            <a class="website-link custom-link" href="https://online.udvash-unmesh.com/Content/DisplayContentType?masterCourseId=11&subjectId=88&masterChapterId=641" target="_blank">Class</a>
+        </div>
+        <div class="lecture-group">
+            <a class="website-link custom-link" href="https://drive.google.com/drive/folders/1OFPalgeybIi271Ks37EHOA5XMqrGVsHj?usp=drive_link" target="_blank">Class Slides</a>
+            <a class="website-link custom-link" href="https://drive.google.com/drive/folders/1xuNNqccK678JCL1Oz2onQbdgYGF9h9DB?usp=drive_link" target="_blank">Class Slides</a>
+        </div>
+     </section>
+     <section>
+        <div class="papers">
+            <h2 class="paper-title custom-link">ACS Engineering (-24)</h2>
+            <h2 class="paper-title custom-link">ACS Engineering (Apurbo-23)</h2>
+        </div>
+        <div class="lecture-group">
+            <a class="website-link custom-link" href="https://engineering24.aparsclassroom.com/Physics/Paper-1/Chapter-4" target="_blank">Class</a>
+            <a class="website-link custom-link" href="https://engineering24.aparsclassroom.com/Physics/Paper-1/Chapter-Archive" target="_blank">Class</a>
+        </div>
+        <div class="lecture-group">
+            <a class="website-link custom-link" href="https://drive.google.com/drive/folders/1Ny9OTL0yJIIP2NCdg9zx6rOVuuXc_HO0?usp=drive_link" target="_blank">Class Slides</a>
+            <a class="website-link custom-link" href="https://drive.google.com/drive/folders/1MSLtapBXvalv75EVkqOn38mH3qOq_vAv?usp=drive_link" target="_blank">Class Slides</a>
+        </div>
+     </section>
+     <section>
+        <hr><hr><hr>
+        <div class="lecture-group">
+            <a class="website-link custom-link" href="https://drive.google.com/drive/folders/1ODvDXUrzMym5M8cVe4YZixVT94TnBbX9?usp=drive_link" target="_blank">Practice Sheets</a>
+            <a class="website-link custom-link" href="https://drive.google.com/drive/folders/1NyUYbafydOTbFbgn6gYDqCcoea1ekVMg?usp=drive_link" target="_blank">Problems</a>
+        </div>
+     </section>
+     <footer>
+            <a href="https://github.com/RafsanX/rafsan/edit/main/%E0%A6%A8%E0%A6%BF%E0%A6%89%E0%A6%9F%E0%A6%A8%E0%A6%BF%E0%A7%9F%E0%A6%BE%E0%A6%A8%20%E0%A6%AC%E0%A6%B2%E0%A6%AC%E0%A6%BF%E0%A6%A6%E0%A7%8D%E0%A6%AF%E0%A6%BE.html" target="_blank">Edit</a>
+     </footer>
 </body>
 </html>
