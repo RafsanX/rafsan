@@ -10,6 +10,9 @@
             margin: 0;
             padding: 0;
             background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
         header {
             background-color: #333;
@@ -77,7 +80,21 @@
             width: 50%; /* Adjust the width to fit two links in one line */
             box-sizing: border-box; /* Include padding and border in the width calculation */
         }
-
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px; /* Increase the padding to increase size vertically */
+            text-align: center;
+            margin-top: auto; /* Push the footer to the bottom */
+            flex-shrink: 0; /* Prevent footer from shrinking */
+        }
+        footer a {
+            color: #fff; /* Set the color to white */
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
     </style>
 </head>
 <body>
@@ -91,88 +108,49 @@
     </header>
     <section>
         <div class="papers">
-            <h2 class="paper-title custom-link">ওমর ফারুক(24)</h2>
-            <h2 class="paper-title custom-link">আবিদা পারভিন(23)</h2>
+            <h2 class="paper-title custom-link">ACS FRB 24<br>(ওমর ফারুক)</h2>
+            <h2 class="paper-title custom-link">ACS FRB 23<br>(আ. পারভিন)</h2>
         </div>
         <div class="lecture-group">
             <a class="website-link custom-link" href="https://frb24.aparsclassroom.com/EBI/Paper-0/Chapter-Bangla/Class-65c4910f685295d379cee360" target="_blank">Class</a>
             <a class="website-link custom-link" href="https://frb24.aparsclassroom.com/EBI/Paper-0/Chapter-Bangla(Archive)/Class-65783bd34ea248ca3da008e6" target="_blank">Class</a>
         </div>
         <div class="lecture-group">
-            <a class="website-link custom-link" href="" target="_blank">Class Slide-White❎</a>
-            <a class="website-link custom-link" href="https://drive.google.com/file/d/1kucUZioyfyMee_8xVOOkl3mqMc46eJG7/view" target="_blank">Class Slide-White</a>
-        </div>
-        <div class="lecture-group">
-            <a class="website-link custom-link" href="https://drive.google.com/file/d/14z40Zl8wSuJXxN_beufUbC3yeDaosHdx/view" target="_blank">Class Slide-Black</a>
-            <a class="website-link custom-link" href="">-</a>
+            <a class="website-link custom-link" href="https://drive.google.com/drive/folders/1euMrWBUeQlzMUfN_WqizfUJTS6sQIN9_?usp=drive_link" target="_blank">Class Slides</a>
+            <a class="website-link custom-link" href="https://drive.google.com/drive/folders/1GhjC8HY-c1KXgxdj07r93Hj8pCaXLl3f?usp=drive_link" target="_blank">Class Slides</a>
         </div>
      </section>
      <section>
         <div class="papers">
             <h2 class="paper-title custom-link">Udvash FRC</h2>
-            <h2 class="paper-title custom-link">তানভির(বন্দি পাঠশালা)</h2>
+            <h2 class="paper-title custom-link">BP (তানভির)</h2>
         </div>
-
-
-
         <div class="lecture-group">
-            <a class="website-link custom-link" href="https://online.udvash-unmesh.com/Content/DisplayContentCardDetails?masterCourseId=10&subjectId=54&masterChapterId=636&masterContentId=1949&masterContentTypeId=3&contentButtonType=video&ln=Bn&videoId=1" target="_blank">Class 1</a>
-
-
-            <a class="website-link custom-link" href="https://www.facebook.com/tanvirsirbangla/videos/850684352699383/?idorvanity=1233296017540172&__cft__[0]=AZVjGw3czdtb3qVw_15eDjgbpY3tjoWNJVvo7rTpB9sWRqCdULMtS2dblN8Fwopfo-Uue_AhmOkOx287Wx8_WrlIQUYLbLTfjJVayhiiMCiAhM81jOw3qGmvzB-pL3OBWXL0g3twNQ8igSUATjHFlOk8rhPrBVkeC8xGgueUELczQsQgcGzEgTl6uR93CQRnsyk&__tn__=-UK-R" target="_blank">Facebook Class 1</a>
+            <a class="website-link custom-link" href="https://online.udvash-unmesh.com/Content/DisplayContentCardDetails?masterCourseId=10&subjectId=54&masterChapterId=636&masterContentId=1949&masterContentTypeId=3&contentButtonType=video&ln=Bn&videoId=1" target="_blank">Class 1<br>()</a>
+            <a class="website-link custom-link" href="https://www.facebook.com/watch/live/?ref=watch_permalink&v=850684352699383" target="_blank">Facebook Class 1<br>()</a>
         </div>
-
-
-
-        <div class="lecture-group">
-            <a class="website-link custom-link" href="https://online.udvash-unmesh.com/Content/DisplayContentCardDetails?masterCourseId=10&subjectId=54&masterChapterId=636&masterContentId=1949&masterContentTypeId=3&contentButtonType=note&ln=Bn&videoId=1" target="_blank">Class Slide 1</a>
-
-
-            <a class="website-link custom-link" href="https://www.facebook.com/tanvirsirbangla/videos/828133301997814/?idorvanity=1233296017540172&__cft__[0]=AZVjGw3czdtb3qVw_15eDjgbpY3tjoWNJVvo7rTpB9sWRqCdULMtS2dblN8Fwopfo-Uue_AhmOkOx287Wx8_WrlIQUYLbLTfjJVayhiiMCiAhM81jOw3qGmvzB-pL3OBWXL0g3twNQ8igSUATjHFlOk8rhPrBVkeC8xGgueUELczQsQgcGzEgTl6uR93CQRnsyk&__tn__=-UK-R" target="_blank">Facebook Class 2</a>
+        <div class="lecture-group
+            <a class="website-link custom-link" href="https://online.udvash-unmesh.com/Content/DisplayContentCardDetails?masterCourseId=10&subjectId=54&masterChapterId=636&masterContentId=2670&masterContentTypeId=3&contentButtonType=video&ln=Bn&videoId=1" target="_blank">Class 2<br>()</a>
+            <a class="website-link custom-link" href="https://www.facebook.com/watch/live/?ref=watch_permalink&v=828133301997814" target="_blank">Facebook Class 2</a>
         </div>
-
-
-
-        <div class="lecture-group">
-            <a class="website-link custom-link" href="https://online.udvash-unmesh.com/Content/DisplayContentCardDetails?masterCourseId=10&subjectId=54&masterChapterId=636&masterContentId=2670&masterContentTypeId=3&contentButtonType=video&ln=Bn&videoId=1" target="_blank">Class 2</a>
-
-
-            <a class="website-link custom-link" href="https://bondipathshala.com.bd/my/watch?subject=326" target="_blank">Webapp Class 1</a>
-        </div>
-
-
-
-        <div class="lecture-group">
-            <a class="website-link custom-link" href="https://online.udvash-unmesh.com/Content/DisplayContentCardDetails?masterCourseId=10&subjectId=54&masterChapterId=636&masterContentId=2670&masterContentTypeId=3&contentButtonType=note&ln=Bn&videoId=1" target="_blank">Class Slide 2</a>
-
-            <a class="website-link custom-link" href="https://bondipathshala.com.bd/my/watch?subject=326" target="_blank">Webapp Class 2</a>
-        </div>
-
-
-
         <div class="lecture-group">
             <a class="website-link custom-link" href="https://online.udvash-unmesh.com/Content/DisplayContentCardDetails?masterCourseId=10&subjectId=54&masterChapterId=636&masterContentId=1383&masterContentTypeId=9&contentButtonType=video&ln=Bn&videoId=1" target="_blank">Archive Class</a>
-
-
-            <a class="website-link custom-link" href="https://drive.google.com/file/d/17jLi92O7uHa-6V8uvIAMjMvx7ipMLu6i/view?fbclid=IwAR3LcAA6AaqiFd-06NpVDKeWrmJs39gjyv45LwEwpzXIX_a7vTcr9afuKws" target="_blank">Class Slide-White 1</a>
+            <a class="website-link custom-link" href="https://bondipathshala.com.bd/" target="_blank">Webapp Class</a>
         </div>
-
-
-
         <div class="lecture-group">
-            <a class="website-link custom-link" href="https://online.udvash-unmesh.com/Content/DisplayContentCardDetails?masterCourseId=10&subjectId=54&masterChapterId=636&masterContentId=1383&masterContentTypeId=9&contentButtonType=note&ln=Bn&videoId=1" target="_blank">Archive Class Slide</a>
-
-            <a class="website-link custom-link" href="" target="_blank">Class Slide-White 2❎</a>
-        </div>
-
-
-
-        <div class="lecture-group">
-            <a class="website-link custom-link" href="https://online.udvash-unmesh.com/Content/DisplayContentCardDetails?masterCourseId=10&subjectId=54&masterChapterId=636&masterContentId=1544&masterContentTypeId=10&contentButtonType=note&ln=Bn&videoId=1" target="_blank">CQ Question Bank</a>
-
-
-            <a class="website-link custom-link" href="https://drive.google.com/file/d/1QIgZgKdPVKf31s3GVnmR1ejvYFFxWWwa/view?fbclid=IwAR0kzkINV2UJU3A7PvQzbU7c_PTjg22OlHVneBv2LtEJMOA51mGaFYnBT2U">Class Slide-Black 2</a>
+            <a class="website-link custom-link" href="https://drive.google.com/drive/folders/16hiQvsdIdSm2ZZT-EQ1e2xIaXwopR0oO?usp=drive_link" target="_blank">Class Slides</a>
+            <a class="website-link custom-link" href="https://drive.google.com/drive/folders/1tbjjOuHF_KaZEximNrYJFFRe1M0MKT_-?usp=drive_link" target="_blank">Class Slides</a>
         </div>
      </section>
+     <section>
+        <hr><hr><hr>
+        <div class="lecture-group">
+            <a class="website-link custom-link" href="https://drive.google.com/drive/folders/1hwH62quMMkqy6WTObzLC3Eg6oGdLtl91?usp=drive_link" target="_blank">Practice Sheets</a>
+            <a class="website-link custom-link" href="https://drive.google.com/drive/folders/1F3Sy8SxyRMmbZ-khOULe95WjW85YhtrQ?usp=drive_link" target="_blank">Problems</a>
+        </div>
+     </section>
+     <footer>
+            <a href="https://github.com/RafsanX/rafsan/edit/main/%E0%A6%AC%E0%A6%BE%E0%A6%82%E0%A6%B2%E0%A6%BE%20%E0%A6%AD%E0%A6%BE%E0%A6%B7%E0%A6%BE%E0%A6%B0%20%E0%A6%AC%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%95%E0%A6%B0%E0%A6%A3%E0%A6%BF%E0%A6%95%20%E0%A6%B6%E0%A6%AC%E0%A7%8D%E0%A6%A6%E0%A6%B6%E0%A7%8D%E0%A6%B0%E0%A7%87%E0%A6%A3%E0%A6%BF.html" target="_blank">Edit</a>
+     </footer>
 </body>
 </html>
