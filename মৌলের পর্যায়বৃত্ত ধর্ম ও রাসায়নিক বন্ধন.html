@@ -10,6 +10,9 @@
             margin: 0;
             padding: 0;
             background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
         header {
             background-color: #333;
@@ -77,7 +80,21 @@
             width: 50%; /* Adjust the width to fit two links in one line */
             box-sizing: border-box; /* Include padding and border in the width calculation */
         }
-
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px; /* Increase the padding to increase size vertically */
+            text-align: center;
+            margin-top: auto; /* Push the footer to the bottom */
+            flex-shrink: 0; /* Prevent footer from shrinking */
+        }
+        footer a {
+            color: #fff; /* Set the color to white */
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
     </style>
 </head>
 <body>
@@ -91,16 +108,16 @@
     </header>
     <section>
         <div class="papers">
-            <h2 class="paper-title custom-link">Sakib (HSC-24)</h2>
             <h2 class="paper-title custom-link">Sanjay (HSC-24)</h2>
+            <h2 class="paper-title custom-link">Sakib (HSC-24)</h2>
         </div>
         <div class="lecture-group">
             <a class="website-link custom-link" href="https://chem24.aparsclassroom.com/chem24/Cycle-3/Paper-1/Chapter-3" target="_blank">Class</a>
             <a class="website-link custom-link" href="https://chem24.aparsclassroom.com/chem24/Cycle-3/Paper-1/Chapter-3" target="_blank">Class</a>
         </div>
         <div class="lecture-group">
-            <a class="website-link custom-link" href="https://drive.google.com/drive/folders/1B66wyLqcfCLbduldnsy5BFM0_Sd2pJWi?usp=drive_link" target="_blank">Class Slides</a>
             <a class="website-link custom-link" href="https://drive.google.com/drive/folders/17BQ5sLPXiv8m-BZ3-1iFbJp_gpTzdtWC?usp=drive_link" target="_blank">Class Slides</a>
+            <a class="website-link custom-link" href="https://drive.google.com/drive/folders/1B66wyLqcfCLbduldnsy5BFM0_Sd2pJWi?usp=drive_link" target="_blank">Class Slides</a>
      </section>
      <section>
         <div class="papers">
@@ -118,6 +135,19 @@
      </section>
      <section>
         <div class="papers">
+            <h2 class="paper-title custom-link">ACS FRB (Sanjay-24)</h2>
+            <h2 class="paper-title custom-link">ACS FRB (Sakib-23)</h2>
+        </div>
+        <div class="lecture-group">
+            <a class="website-link custom-link" href="https://frb24.aparsclassroom.com/Chemistry/Paper-1/Chapter-3" target="_blank">Class</a>
+            <a class="website-link custom-link" href="https://frb24.aparsclassroom.com/Chemistry/Paper-1/Chapter-Archive" target="_blank">Class</a>
+        </div>
+        <div class="lecture-group">
+            <a class="website-link custom-link" href="https://drive.google.com/drive/folders/1ow_Faf-TMXMk2vNk0dgXH3vXQ8tCCcuk?usp=drive_link" target="_blank">Class Slides</a>
+            <a class="website-link custom-link" href="https://drive.google.com/drive/folders/1s8nGwrMMeVaUD0kUrC3Gyd-3AUHsG9Nk?usp=drive_link" target="_blank">Class Slides</a>
+     </section>
+     <section>
+        <div class="papers">
             <h2 class="paper-title custom-link">Udvash<br>FRC</h2>
             <h2 class="paper-title custom-link">Udvashh<br>Engineering</h2>
         </div>
@@ -130,20 +160,7 @@
             <a class="website-link custom-link" href="https://drive.google.com/drive/folders/1ejSA4BRjJNdQTAXvY2T9zmXz3WUFY1WH?usp=drive_link" target="_blank">Class Slides</a>
         </div>
      </section>
-      <section>
-        <div class="papers">
-            <h2 class="paper-title custom-link">ACS FRB (Sanjay-24)</h2>
-            <h2 class="paper-title custom-link">ACS FRB (Sakib-23)</h2>
-        </div>
-        <div class="lecture-group">
-            <a class="website-link custom-link" href="https://frb24.aparsclassroom.com/Chemistry/Paper-1/Chapter-3" target="_blank">Class</a>
-            <a class="website-link custom-link" href="https://frb24.aparsclassroom.com/Chemistry/Paper-1/Chapter-Archive" target="_blank">Class</a>
-        </div>
-        <div class="lecture-group">
-            <a class="website-link custom-link" href="https://drive.google.com/drive/folders/1ow_Faf-TMXMk2vNk0dgXH3vXQ8tCCcuk?usp=drive_link" target="_blank">Class Slides</a>
-            <a class="website-link custom-link" href="https://drive.google.com/drive/folders/1s8nGwrMMeVaUD0kUrC3Gyd-3AUHsG9Nk?usp=drive_link" target="_blank">Class Slides</a>
-     </section>
-        <section>
+     <section>
         <div class="papers">
             <h2 class="paper-title custom-link">ACS Engineering (-24)</h2>
             <h2 class="paper-title custom-link">ACS Engineering (Sanjay-23)</h2>
