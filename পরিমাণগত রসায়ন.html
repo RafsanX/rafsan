@@ -10,6 +10,9 @@
             margin: 0;
             padding: 0;
             background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
         header {
             background-color: #333;
@@ -77,7 +80,21 @@
             width: 50%; /* Adjust the width to fit two links in one line */
             box-sizing: border-box; /* Include padding and border in the width calculation */
         }
-
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px; /* Increase the padding to increase size vertically */
+            text-align: center;
+            margin-top: auto; /* Push the footer to the bottom */
+            flex-shrink: 0; /* Prevent footer from shrinking */
+        }
+        footer a {
+            color: #fff; /* Set the color to white */
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
     </style>
 </head>
 <body>
@@ -91,37 +108,33 @@
     </header>
     <section>
         <div class="papers">
-            <h2 class="paper-title custom-link">Sanjay(24)</h2>
-            <h2 class="paper-title custom-link">Sakib(24)</h2>
+            <h2 class="paper-title custom-link">Sanjay (24)</h2>
+            <h2 class="paper-title custom-link">Sakib (24)</h2>
         </div>
         <div class="lecture-group">
             <a class="website-link custom-link" href="https://buetchem24.aparsclassroom.com/buetchem24/Cycle-5/Paper-2/Chapter-3" target="_blank">Class</a>
             <a class="website-link custom-link" href="https://chem24.aparsclassroom.com/chem24/Cycle-2/Paper-2/Chapter-3" target="_blank">Class</a>
         </div>
         <div class="lecture-group">
-            <a class="website-link custom-link" href="" target="_blank">Class Slide-White❎</a>
-            <a class="website-link custom-link" href="" target="_blank">Class Slide-White❎</a>
-        </div>
-        <div class="lecture-group">
-            <a class="website-link custom-link" href="" target="_blank">Class Slide-Black❎</a>
-            <a class="website-link custom-link" href="" target="_blank">Class Slide-Black❎</a>
+            <a class="website-link custom-link" href="https://drive.google.com/drive/folders/1E_tjUaP7ZGkmEOiP5E3xFEHCJGmQ05-x?usp=drive_link" target="_blank">Class Slides</a>
+            <a class="website-link custom-link" href="https://drive.google.com/drive/folders/17qXIFv0p3JuQKtQDMfK60EHonmIlpBcE?usp=drive_link" target="_blank">Class Slides</a>
         </div>
      </section>
      <section>
         <div class="papers">
-            <h2 class="paper-title custom-link">Udvash FRC</h2>
-            <h2 class="paper-title custom-link">Hemel(24)</h2>
+            <h2 class="paper-title custom-link">Hemel (24)</h2>
+            <h2 class="paper-title custom-link">Biggan Class</h2>
         </div>
         <div class="lecture-group">
-            <a class="website-link custom-link" href="https://online.udvash-unmesh.com/Content/DisplayContentType?masterCourseId=10&subjectId=87&masterChapterId=583" target="_blank">Class</a>
             <a class="website-link custom-link" href="https://www.facebook.com/groups/1444365712964589/permalink/1539946566739836/" target="_blank">Class</a>
+            <a class="website-link custom-link" href="https://www.bigganclass.com/s/courses/6501b446e4b0b07056713230/take" target="_blank">Class</a>
         </div>
         <div class="lecture-group">
-            <a class="website-link custom-link" href="https://online.udvash-unmesh.com/Content/DisplayContentCardDetails?masterCourseId=10&subjectId=87&masterChapterId=583&masterContentId=1596&masterContentTypeId=10&contentButtonType=note&ln=Bn&videoId=1" target="_blank">CQ Question Bank</a>
-            <a class="website-link custom-link" href="" target="_blank">Slide</a>
+            <a class="website-link custom-link" href="https://drive.google.com/drive/folders/17434LFExvNac_ZmpgT0eYz-IFxZPV2kV?usp=drive_link" target="_blank">Class Slides</a>
+            <a class="website-link custom-link" href="https://drive.google.com/drive/folders/1hEA0ALomtPkcfUfmnW6BCbtj4fktRB9g?usp=drive_link" target="_blank">Class Slides</a>
         </div>
      </section>
-      <section>
+     <section>
         <div class="papers">
             <h2 class="paper-title custom-link">ACS FRB (Hemel-24)</h2>
             <h2 class="paper-title custom-link">ACS FRB (Sakib-23)</h2>
@@ -131,17 +144,26 @@
             <a class="website-link custom-link" href="https://frb24.aparsclassroom.com/Chemistry/Paper-2/Chapter-Archive" target="_blank">Class</a>
         </div>
         <div class="lecture-group">
-            <a class="website-link custom-link" href="" target="_blank">Class Slide-White❎</a>
-            <a class="website-link custom-link" href="" target="_blank">Class Slide-White❎</a>
+            <a class="website-link custom-link" href="https://drive.google.com/drive/folders/1lWPe1mk0EvNcR7eXV1WF9wfSSGjUq9kK?usp=drive_link" target="_blank">Class Slides</a>
+            <a class="website-link custom-link" href="https://drive.google.com/drive/folders/1Dth7ClZo-Mp2V9gINCR9MdhRds1EaG83?usp=drive_link" target="_blank">Class Slides</a>
+     </section>
+     <section>
+        <div class="papers">
+            <h2 class="paper-title custom-link">Udvash<br>FRC</h2>
+            <h2 class="paper-title custom-link">Udvash<br>Engineering</h2>
         </div>
         <div class="lecture-group">
-            <a class="website-link custom-link" href="" target="_blank">Class Slide-Black❎</a>
-            <a class="website-link custom-link" href="" target="_blank">Class Slide-Black❎</a>
+            <a class="website-link custom-link" href="https://online.udvash-unmesh.com/Content/DisplayContentType?masterCourseId=10&subjectId=87&masterChapterId=583" target="_blank">Class</a>
+            <a class="website-link custom-link" href="https://online.udvash-unmesh.com/Content/DisplayContentType?masterCourseId=11&subjectId=87&masterChapterId=666" target="_blank">Class</a>
+        </div>
+        <div class="lecture-group">
+            <a class="website-link custom-link" href="https://drive.google.com/drive/folders/1mXLE1WkUvuX4HiJJqppWVyKS9N7b4lO6?usp=drive_link" target="_blank">Class Slides</a>
+            <a class="website-link custom-link" href="https://drive.google.com/drive/folders/1oaPIqWk0NC6bBug4T2Y0v4JislQCl0dT?usp=drive_link" target="_blank">Class Slides</a>
         </div>
      </section>
-        <section>
+     <section>
         <div class="papers">
-            <h2 class="paper-title custom-link">ACS Engineering (Sanjay-24)</h2>
+            <h2 class="paper-title custom-link">ACS Engineering (-24)</h2>
             <h2 class="paper-title custom-link">ACS Engineering (Sanjay-23)</h2>
         </div>
         <div class="lecture-group">
@@ -149,13 +171,22 @@
             <a class="website-link custom-link" href="https://engineering24.aparsclassroom.com/Chemistry/Paper-2/Chapter-Archive" target="_blank">Class</a>
         </div>
         <div class="lecture-group">
-            <a class="website-link custom-link" href="" target="_blank">Class Slide-White❎</a>
-            <a class="website-link custom-link" href="" target="_blank">Class Slide-White❎</a>
+            <a class="website-link custom-link" href="https://drive.google.com/drive/folders/1R-0v9024e50MCd0HhMwfy8J8EPv0A5dG?usp=drive_link" target="_blank">Class Slides</a>
+            <a class="website-link custom-link" href="https://drive.google.com/drive/folders/17j_PDO36rTQa88xbs-q_HjOjzQixQEqq?usp=drive_link" target="_blank">Class Slides</a>
+     </section>
+     <section>
+        <hr><hr><hr>
+        <div class="lecture-group">
+            <a class="website-link custom-link" href="https://drive.google.com/drive/folders/14R328t7NKrG-Qb8nBjISv8_E_Ki6dE2R?usp=drive_link" target="_blank">Books</a>
+            <a class="website-link custom-link" href="https://drive.google.com/drive/folders/1Hr5m32BX4dP6UTm3YhBBzF68J_AKGylR?usp=drive_link" target="_blank">Practice Sheets</a>
         </div>
         <div class="lecture-group">
-            <a class="website-link custom-link" href="" target="_blank">Class Slide-Black❎</a>
-            <a class="website-link custom-link" href="" target="_blank">Class Slide-Black❎</a>
+            <a class="website-link custom-link" href="https://drive.google.com/drive/folders/12GopMMHjHRbAxlDZgzDURKkMNxKGVvmu?usp=drive_link" target="_blank">Problems</a>
+            <a class="website-link custom-link" href="https://drive.google.com/drive/folders/1PYCohD05ZAc1ryPT2XWC4pIqNqDMytZc?usp=drive_link" target="_blank">Extras</a>
         </div>
      </section>
+     <footer>
+            <a href="https://github.com/RafsanX/rafsan/edit/main/%E0%A6%AA%E0%A6%B0%E0%A6%BF%E0%A6%AE%E0%A6%BE%E0%A6%A3%E0%A6%97%E0%A6%A4%20%E0%A6%B0%E0%A6%B8%E0%A6%BE%E0%A7%9F%E0%A6%A8.html" target="_blank">Edit<br></a>
+     </footer>
 </body>
 </html>
