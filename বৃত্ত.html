@@ -18,6 +18,14 @@
             color: #fff;
             padding: 10px;
             text-align: center;
+            position: relative; /* Position relative for absolute positioning */
+        }
+        #name {
+            position: absolute; /* Position absolute for positioning at the top right corner */
+            top: 10px; /* Adjust distance from top */
+            right: 10px; /* Adjust distance from right */
+            color: #fff; /* Text color */
+            font-size: 16px; /* Adjust font size as needed */
         }
         nav {
             background-color: #444;
@@ -99,6 +107,7 @@
 <body>
     <header>
         <h1>বৃত্ত</h1>
+        <div id="name">Rafsan Mahruz Irfan</div>
         <nav>
             <a href="Homepage.html">Homepage</a>
             <a href="All Subjects.html">All Subjects</a>
