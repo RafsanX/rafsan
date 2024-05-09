@@ -189,10 +189,10 @@
 
 
 
+
     <!-- Notification for link copied -->
     <div class="notification" id="copiedNotification">Link copied to clipboard</div>
 
-<!-- JavaScript for context menu -->
 <script>
     // Event listener to handle right-click context menu
     var links = document.querySelectorAll('.website-link');
@@ -229,11 +229,8 @@
             copyLinkOption.addEventListener('click', function() {
                 navigator.clipboard.writeText(link.href)
                     .then(function() {
-                        // Show notification
                         var notification = document.getElementById('copiedNotification');
                         notification.style.opacity = 1;
-
-                        // Fade out after 1 second
                         setTimeout(function() {
                             notification.style.opacity = 0;
                         }, 1000);
@@ -262,18 +259,15 @@
                 editableText.style.background = 'none';
                 editableText.style.color = 'inherit';
                 editableText.style.textAlign = 'center';
-                editableText.style.outline = '1px solid #999'; // Show a border to indicate editing mode
+                editableText.style.outline = '1px solid #999';
                 editableText.style.borderRadius = '5px';
                 editableText.style.boxSizing = 'border-box';
 
-                // Replace the link text with the editable input field
                 link.innerHTML = '';
                 link.appendChild(editableText);
-                
-                // Focus on the input field
+
                 editableText.focus();
 
-                // Save the edited link name when Enter key is pressed
                 editableText.addEventListener('keypress', function(event) {
                     if (event.key === 'Enter') {
                         event.preventDefault();
@@ -285,7 +279,14 @@
                     }
                 });
 
-                // Close the context menu when editing is initiated
+                editableText.addEventListener('blur', function() {
+                    var newName = editableText.value.trim();
+                    if (newName) {
+                        link.innerText = newName;
+                        saveLinkNames();
+                    }
+                });
+
                 contextMenu.remove();
             });
 
@@ -295,10 +296,54 @@
 
             document.body.appendChild(contextMenu);
 
-            // Close the context menu if clicked outside
             document.addEventListener('click', function(event) {
                 if (!contextMenu.contains(event.target)) {
                     contextMenu.remove();
+                }
+            });
+        });
+
+        // Double click event for inline editing
+        link.addEventListener('dblclick', function() {
+            var originalText = link.innerText.trim();
+            var editableText = document.createElement('input');
+            editableText.type = 'text';
+            editableText.value = originalText;
+            editableText.style.width = link.offsetWidth + 'px';
+            editableText.style.height = link.offsetHeight + 'px';
+            editableText.style.border = 'none';
+            editableText.style.fontFamily = 'inherit';
+            editableText.style.fontSize = 'inherit';
+            editableText.style.padding = '0';
+            editableText.style.margin = '0';
+            editableText.style.background = 'none';
+            editableText.style.color = 'inherit';
+            editableText.style.textAlign = 'center';
+            editableText.style.outline = '1px solid #999';
+            editableText.style.borderRadius = '5px';
+            editableText.style.boxSizing = 'border-box';
+
+            link.innerHTML = '';
+            link.appendChild(editableText);
+
+            editableText.focus();
+
+            editableText.addEventListener('blur', function() {
+                var newName = editableText.value.trim();
+                if (newName) {
+                    link.innerText = newName;
+                    saveLinkNames();
+                }
+            });
+
+            editableText.addEventListener('keypress', function(event) {
+                if (event.key === 'Enter') {
+                    event.preventDefault();
+                    var newName = editableText.value.trim();
+                    if (newName) {
+                        link.innerText = newName;
+                        saveLinkNames();
+                    }
                 }
             });
         });
@@ -332,90 +377,70 @@
 
 
 
-
-
-
-
-
-
-
-
-<!-- JavaScript for inline editing of titles -->
 <script>
-    // Function to enable inline editing of titles
-    function enableInlineEditing(title) {
-        var editableText = document.createElement('input');
-        editableText.type = 'text';
-        editableText.value = title.innerText.trim();
-        editableText.style.width = title.offsetWidth + 'px';
-        editableText.style.border = 'none';
-        editableText.style.fontFamily = 'inherit';
-        editableText.style.fontSize = 'inherit';
-        editableText.style.padding = '0';
-        editableText.style.margin = '0';
-        editableText.style.background = 'none';
-        editableText.style.color = 'inherit';
-        editableText.style.textAlign = 'center';
-        editableText.style.outline = '1px solid #999'; // Show a border to indicate editing mode
-        editableText.style.borderRadius = '5px';
-        editableText.style.boxSizing = 'border-box';
+    // Function to handle inline editing of titles
+    function enableInlineEditing() {
+        var titles = document.querySelectorAll('.paper-title');
+        titles.forEach(function(title) {
+            title.addEventListener('dblclick', function() {
+                var originalText = title.innerText.trim();
+                var editableText = document.createElement('textarea');
+                editableText.value = originalText;
+                editableText.classList.add('inline-edit');
+                title.innerHTML = '';
+                title.appendChild(editableText);
 
-        // Replace the title text with the editable input field
-        title.innerHTML = '';
-        title.appendChild(editableText);
-        
-        // Focus on the input field
-        editableText.focus();
+                editableText.focus();
 
-        // Save the edited title when Enter key is pressed
-        editableText.addEventListener('keypress', function(event) {
-            if (event.key === 'Enter') {
-                event.preventDefault();
-                var newTitle = editableText.value.trim();
-                if (newTitle) {
-                    title.innerText = newTitle;
-                    saveTitle();
-                }
-            }
-        });
+                // Event listener for capturing Enter key press
+                editableText.addEventListener('keydown', function(event) {
+                    if (event.key === 'Enter' && !event.shiftKey) {
+                        event.preventDefault();
+                        var selectionStart = editableText.selectionStart;
+                        var selectionEnd = editableText.selectionEnd;
+                        var textBefore = editableText.value.substring(0, selectionStart);
+                        var textAfter = editableText.value.substring(selectionEnd);
+                        editableText.value = textBefore + '\n' + textAfter;
+                        editableText.setSelectionRange(selectionStart + 1, selectionStart + 1);
+                    }
+                });
 
-        // Restore the title text if clicked outside the input field
-        document.addEventListener('click', function(event) {
-            if (!title.contains(event.target)) {
-                var newTitle = editableText.value.trim();
-                if (newTitle) {
-                    title.innerText = newTitle;
-                    saveTitle();
-                }
-            }
+                // Event listener for handling blur (losing focus)
+                editableText.addEventListener('blur', function() {
+                    var newText = editableText.value.trim();
+                    if (newText) {
+                        title.innerText = newText;
+                        saveTitleChanges();
+                    }
+                });
+            });
         });
     }
 
-    // Function to save the edited title to localStorage
-    function saveTitle() {
-        var pageTitle = document.querySelector('h1');
-        localStorage.setItem('pageTitle', pageTitle.innerText);
+    // Function to save title changes to localStorage
+    function saveTitleChanges() {
+        var titles = document.querySelectorAll('.paper-title');
+        var titleTexts = [];
+        titles.forEach(function(title) {
+            titleTexts.push(title.innerText);
+        });
+        localStorage.setItem('paperTitles', JSON.stringify(titleTexts));
     }
 
-    // Load the edited title from localStorage
-    function loadTitle() {
-        var pageTitle = document.querySelector('h1');
-        var savedTitle = localStorage.getItem('pageTitle');
-        if (savedTitle) {
-            pageTitle.innerText = savedTitle;
+    // Function to load titles from localStorage
+    function loadTitles() {
+        var titles = document.querySelectorAll('.paper-title');
+        var titleTexts = JSON.parse(localStorage.getItem('paperTitles'));
+        if (titleTexts && titleTexts.length === titles.length) {
+            titles.forEach(function(title, index) {
+                title.innerText = titleTexts[index];
+            });
         }
     }
 
-    // Call the function to load edited title when the page loads
-    loadTitle();
-
-    // Event listener to enable inline editing of titles when double-clicked
-    var titles = document.querySelectorAll('.paper-title');
-    titles.forEach(function(title) {
-        title.addEventListener('dblclick', function() {
-            enableInlineEditing(title);
-        });
-    });
+    // Call functions to enable inline editing and load titles when the page loads
+    enableInlineEditing();
+    loadTitles();
 </script>
 
 
