@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>প্রোগ্রামিং ভাষা</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        header {
+            background: linear-gradient(to right, #333, #555); /* Gradient from dark gray to lighter gray */
+            color: #fff; /* White text color */
+            padding: 10px;
+            text-align: center;
+            position: relative; /* Position relative for absolute positioning */
+        }
+        #name {
+            position: absolute; /* Position absolute for positioning at the top right corner */
+            top: 10px; /* Adjust distance from top */
+            right: 10px; /* Adjust distance from right */
+            color: #fff; /* Text color */
+            font-size: 16px; /* Adjust font size as needed */
+        }
+        nav {
+            background-color: #444;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        section {
+            padding: 20px;
+            text-align: center;
+        }
+        section a {
+            display: inline-block;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #762283;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            width: 45%; /* Adjust the width to fit two links in one line */
+            box-sizing: border-box; /* Include padding and border in the width calculation */
+        }
+        section a:hover {
+            background-color: #000;
+        }
+        .papers {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .paper-title {
+            flex: 1;
+            margin: 0;
+        }
+        /* Increase space between specific pairs of links */
+        .custom-link:nth-child(odd) {
+            margin-right: 6.5%;
+        }
+        .lecture-group {
+            display: flex; /* Use flexbox */
+            justify-content: space-between; /* Distribute items evenly along the main axis */
+            margin-bottom: 20px; /* Adjust margin as needed */
+        }
+        .website-link {
+            display: inline-block;
+            margin-bottom: -10px;
+            padding: 10px;
+            background-color: #762283;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            width: 50%; /* Adjust the width to fit two links in one line */
+            box-sizing: border-box; /* Include padding and border in the width calculation */
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px; /* Increase the padding to increase size vertically */
+            text-align: center;
+            margin-top: auto; /* Push the footer to the bottom */
+            flex-shrink: 0; /* Prevent footer from shrinking */
+        }
+        footer a {
+            color: #fff; /* Set the color to white */
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>প্রোগ্রামিং ভাষা</h1>
+        <nav>
+            <a href="Homepage.html">Homepage</a>
+            <a href="All Subjects.html">All Subjects</a>
+            <a href="ICT.html">All Chapters</a>
+        </nav>
+    </header>
+    <section>
+        <div class="papers">
+            <h2 class="paper-title custom-link">Decoder<br>(Sharoare)</h2>
+            <h2 class="paper-title custom-link">ACS FRB<br>(Sharoare)</h2>
+        </div>
+        <div class="lecture-group">
+            <a class="website-link custom-link" href="https://decoder.aparsclassroom.com/Module-5" target="_blank">Class</a>
+            <a class="website-link" href="https://frb24.aparsclassroom.com/EBI/Paper-0/Chapter-ICT" target="_blank">Class</a>
+        </div>
+        <div class="lecture-group">
+            <a class="website-link custom-link" href="https://drive.google.com/drive/folders/1pePu9ho0GAP4nU-X2GKgG2pa6X2RPDNf?usp=drive_link" target="_blank">Class Slides</a>
+            <a class="website-link" href="https://drive.google.com/drive/folders/1XJqLJVyQkhv1Xhqd3J5aE1wLw5zYR-QI?usp=drive_link" target="_blank">Class Slides</a>
+        </div>
+    </section>
+    <section>
+        <div class="papers">
+            <h2 class="paper-title custom-link">Udvash FRC</h2>
+            <h2 class="paper-title custom-link">-</h2>
+        </div>
+        <div class="lecture-group">
+            <a class="website-link custom-link" href="" target="_blank">Class</a>
+            <a class="website-link custom-link" href="">-</a>
+        </div>
+        <div class="lecture-group">
+            <a class="website-link custom-link" href="https://drive.google.com/drive/folders/17X10NstxJkbZED9IlK9Cmj82ahxzcv-n?usp=drive_link" target="_blank">Class Slides</a>
+            <a class="website-link custom-link" href="">-</a>
+        </div>
+    </section>
+    <section>
+        <hr><hr><hr>
+        <div class="lecture-group">
+            <a class="website-link custom-link" href="https://drive.google.com/drive/folders/1sF0GvuAQImbt_T53wCgV2ILDBOLRxRLu?usp=drive_link" target="_blank">Practice Sheets</a>
+            <a class="website-link custom-link" href="https://drive.google.com/drive/folders/1KlBGQNWu4kYFqhr6OEgaPcOdowmOlItm?usp=drive_link" target="_blank">Problems</a>
+        </div>
+        <div class="lecture-group">
+            <a class="website-link custom-link" href="https://drive.google.com/drive/folders/1aAEOQ8nomyeS5mbf0-d_GuXcm8g3Loyr?usp=drive_link" target="_blank">Extras</a>
+        </div>
+     </section>
+    <footer>
+        <a href="https://github.com/RafsanX/rafsan/edit/main/%E0%A6%93%E0%A7%9F%E0%A7%87%E0%A6%AC%20%E0%A6%A1%E0%A6%BF%E0%A6%9C%E0%A6%BE%E0%A6%87%E0%A6%A8%20%E0%A6%AA%E0%A6%B0%E0%A6%BF%E0%A6%9A%E0%A6%BF%E0%A6%A4%E0%A6%BF%20%E0%A6%8F%E0%A6%AC%E0%A6%82%20HTML.html" target="_blank">Edit</a>
+    </footer>
+</body>
+</html>
