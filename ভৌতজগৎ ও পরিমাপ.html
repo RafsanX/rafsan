@@ -10,63 +10,90 @@
             margin: 0;
             padding: 0;
             background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
         header {
             background-color: #333;
             color: #fff;
-            padding: 10px 0;
+            padding: 10px;
             text-align: center;
         }
         nav {
             background-color: #444;
-            padding: 10px 0;
+            padding: 10px;
             text-align: center;
         }
         nav a {
             color: #fff;
             text-decoration: none;
-            margin: 0 15px;
-            padding: 0px;
-            border-radius: 5px;
+            margin: 0 10px;
         }
         nav a:hover {
-            background-color: #555;
+            text-decoration: underline;
         }
         section {
-            padding: 50px 20px;
+            padding: 20px;
             text-align: center;
-        }
-        section h2 {
-            margin-bottom: 30px;
-            font-size: 24px;
-            color: #333;
         }
         section a {
             display: inline-block;
-            margin-bottom: 30px;
-            padding: 40px;
+            margin-bottom: 10px;
+            padding: 10px;
             background-color: #B41E8E;
             color: #fff;
             text-decoration: none;
-            border-radius: 200px;
+            border-radius: 5px;
+            width: 45%; /* Adjust the width to fit two links in one line */
+            box-sizing: border-box; /* Include padding and border in the width calculation */
         }
         section a:hover {
-            background-color: #B41E8E;
+            background-color: #000;
+        }
+        .papers {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .paper-title {
+            flex: 1;
+            margin: 0;
+        }
+        /* Increase space between specific pairs of links */
+        .custom-link:nth-child(odd) {
+            margin-right: 6.5%;
         }
         .lecture-group {
-            text-align: center;
+            display: flex; /* Use flexbox */
+            justify-content: space-between; /* Distribute items evenly along the main axis */
+            margin-bottom: 20px; /* Adjust margin as needed */
         }
-        .lecture-group .website-link {
-            margin-bottom: 20px;
-            padding: 15px; /* Adjust height */
-            width: 300px; /* Adjust width */
+        .website-link {
+            display: inline-block;
+            margin-bottom: -10px;
+            padding: 10px;
             background-color: #B41E8E;
             color: #fff;
             text-decoration: none;
-            border-radius: 10px;
+            border-radius: 5px;
+            width: 50%; /* Adjust the width to fit two links in one line */
+            box-sizing: border-box; /* Include padding and border in the width calculation */
         }
-        .lecture-group .website-link:hover {
-            background-color: #000;
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px; /* Increase the padding to increase size vertically */
+            text-align: center;
+            margin-top: auto; /* Push the footer to the bottom */
+            flex-shrink: 0; /* Prevent footer from shrinking */
+        }
+        footer a {
+            color: #fff; /* Set the color to white */
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline; /* Underline on hover */
         }
     </style>
 </head>
@@ -76,21 +103,50 @@
     <nav>
         <a href="Homepage.html">Homepage</a>
         <a href="All Subjects.html">All Subjects</a>
-        <a href="Biology.html">All Chapters</a>
+        <a href="Physics.html">All Chapters</a>
     </nav>
     </header>
     <section>
-        <h2>অপূর্ব(HSC-25)</h2>
-        <div class="lecture-group">
-            <a class="website-link" href="https://b2m25.aparsclassroom.com/b2m25/Cycle-1/Chapter-1" target="_blank">Class</a>
-            <a class="website-link" href="" target="_blank">Slide</a>
+        <div class="papers">
+            <h2 class="paper-title custom-link">Apurbo (25)</h2>
+            <h2 class="paper-title custom-link">Udvash FRC</h2>
         </div>
-        <h2>অপার</h2>
-        <h2>Udvash FRC</h2>
         <div class="lecture-group">
-            <a class="website-link" href="https://online.udvash-unmesh.com/Content/DisplayContentType?masterCourseId=10&subjectId=88&masterChapterId=555" target="_blank">Class</a>
-            <a class="website-link" href="https://online.udvash-unmesh.com/Content/DisplayContentCardDetails?masterCourseId=10&subjectId=88&masterChapterId=555&masterContentId=1453&masterContentTypeId=10&contentButtonType=note&ln=Bn&videoId=1" target="_blank">CQ Question Bank</a>
+            <a class="website-link custom-link" href="https://b2m25.aparsclassroom.com/b2m25/Cycle-1/Chapter-1" target="_blank">Class</a>
+            <a class="website-link custom-link" href="https://online.udvash-unmesh.com/Content/DisplayContentType?masterCourseId=10&subjectId=88&masterChapterId=555" target="_blank">Class</a>
         </div>
-    </section>
+        <div class="lecture-group">
+            <a class="website-link custom-link" href="https://drive.google.com/drive/folders/1ZZVdeSI_tolYXQjyQt8C_QePwqUOpX7L?usp=drive_link" target="_blank">Class Slides</a>
+            <a class="website-link custom-link" href="https://drive.google.com/drive/folders/1f-3gGGmCqGFJDDduTijNnwS1OJzv1AQa?usp=drive_link" target="_blank">Class Slides</a>
+        </div>
+     </section>
+     <section>
+        <div class="papers">
+            <h2 class="paper-title custom-link">Udvash<br>Engineering</h2>
+            <h2 class="paper-title custom-link">-</h2>
+        </div>
+        <div class="lecture-group">
+            <a class="website-link custom-link" href="https://online.udvash-unmesh.com/Content/DisplayContentType?masterCourseId=11&subjectId=88&masterChapterId=638" target="_blank">Class</a>
+            <a class="website-link custom-link" href="">-</a>
+        </div>
+        <div class="lecture-group">
+            <a class="website-link custom-link" href="https://drive.google.com/drive/folders/1ySeyYZy-L9hKLZi9VPaevgqwuqWLPaaf?usp=drive_link" target="_blank">Class Slides</a>
+            <a class="website-link custom-link" href="">-</a>
+        </div>
+     </section>
+     <section>
+        <hr><hr><hr>
+        <div class="lecture-group">
+            <a class="website-link custom-link" href="https://drive.google.com/drive/folders/13gRn3G_6OUgfnBEUAXRNBaJ2tJIGglti?usp=drive_link" target="_blank">Practice Sheets</a>
+            <a class="website-link custom-link" href="https://drive.google.com/drive/folders/1fY-OsiJLcncUW8rLf6OG8UMIxbWpWgvl?usp=drive_link" target="_blank">Problems</a>
+        </div>
+        <div class="lecture-group">
+            <a class="website-link custom-link" href="https://drive.google.com/drive/folders/1truSQaHvu-yt1lsfGL_yNZeFdIiv-paK?usp=drive_link" target="_blank">Extras</a>
+            <a class="website-link custom-link" href="">-</a>
+        </div>
+     </section>
+     <footer>
+            <a href="https://github.com/RafsanX/rafsan/edit/main/%E0%A6%AD%E0%A7%8C%E0%A6%A4%E0%A6%9C%E0%A6%97%E0%A7%8E%20%E0%A6%93%20%E0%A6%AA%E0%A6%B0%E0%A6%BF%E0%A6%AE%E0%A6%BE%E0%A6%AA.html" target="_blank">Edit</a>
+     </footer>
 </body>
 </html>
