@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .input-group {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        button {
+            padding: 10px;
+            border: none;
+            background: #007BFF;
+            color: white;
+            cursor: pointer;
+            border-radius: 3px;
+            margin-left: 10px;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 10px;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            margin-bottom: 5px;
+            border-radius: 3px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        li .edit-btn, li .delete-btn {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 3px;
+            margin-left: 5px;
+        }
+
+        li .edit-btn:hover {
+            background: #d35400;
+        }
+
+        li .delete-btn:hover {
+            background: #c0392b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>My To-Do List</h1>
+        <div class="input-group">
+            <input type="text" id="todo-input" placeholder="Add new to-do...">
+            <button id="add-btn">Add</button>
+        </div>
+        <ul id="todo-list"></ul>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const todoInput = document.getElementById('todo-input');
+            const addBtn = document.getElementById('add-btn');
+            const todoList = document.getElementById('todo-list');
+
+            // Load todos from local storage
+            const todos = JSON.parse(localStorage.getItem('todos')) || [];
+
+            const saveTodos = () => {
+                localStorage.setItem('todos', JSON.stringify(todos));
+            };
+
+            const renderTodos = () => {
+                todoList.innerHTML = '';
+                todos.forEach((todo, index) => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `
+                        <span contenteditable="true" class="todo-item">${todo.content}</span>
+                        <button class="edit-btn" data-index="${index}">Edit</button>
+                        <button class="delete-btn" data-index="${index}">Delete</button>
+                    `;
+                    todoList.appendChild(li);
+                });
+            };
+
+            const addTodo = (content) => {
+                if (content.trim() === '') return;
+                todos.push({ content });
+                saveTodos();
+                renderTodos();
+                todoInput.value = '';
+            };
+
+            const editTodo = (index, content) => {
+                if (content.trim() === '') return;
+                todos[index].content = content;
+                saveTodos();
+                renderTodos();
+            };
+
+            const deleteTodo = (index) => {
+                todos.splice(index, 1);
+                saveTodos();
+                renderTodos();
+            };
+
+            addBtn.addEventListener('click', () => {
+                addTodo(todoInput.value);
+            });
+
+            todoList.addEventListener('click', (e) => {
+                if (e.target.classList.contains('delete-btn')) {
+                    const index = e.target.getAttribute('data-index');
+                    deleteTodo(index);
+                } else if (e.target.classList.contains('edit-btn')) {
+                    const index = e.target.getAttribute('data-index');
+                    const newContent = e.target.previousElementSibling.innerText;
+                    editTodo(index, newContent);
+                }
+            });
+
+            todoList.addEventListener('input', (e) => {
+                if (e.target.classList.contains('todo-item')) {
+                    const index = Array.from(todoList.children).indexOf(e.target.parentElement);
+                    todos[index].content = e.target.innerText;
+                    saveTodos();
+                }
+            });
+
+            renderTodos();
+        });
+    </script>
+</body>
+</html>
