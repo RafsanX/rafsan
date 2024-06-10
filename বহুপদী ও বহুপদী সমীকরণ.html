@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>বহুপদী ও বহুপদী সমীকরণ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        header {
+            background: linear-gradient(to right, #333, #555); /* Gradient from dark gray to lighter gray */
+            color: #fff; /* White text color */
+            padding: 10px;
+            text-align: center;
+            position: relative; /* Position relative for absolute positioning */
+        }
+        #name {
+            position: absolute; /* Position absolute for positioning at the top right corner */
+            top: 10px; /* Adjust distance from top */
+            right: 10px; /* Adjust distance from right */
+            color: #fff; /* Text color */
+            font-size: 16px; /* Adjust font size as needed */
+        }
+        nav {
+            background-color: #444;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        section {
+            padding: 20px;
+            text-align: center;
+        }
+        section a {
+            display: inline-block;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #442F91;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            width: 45%; /* Adjust the width to fit two links in one line */
+            box-sizing: border-box; /* Include padding and border in the width calculation */
+        }
+        section a:hover {
+            background-color: #000;
+        }
+        .papers {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .paper-title {
+            flex: 1;
+            margin: 0;
+        }
+        /* Increase space between specific pairs of links */
+        .custom-link:nth-child(odd) {
+            margin-right: 6.5%;
+        }
+        .lecture-group {
+            display: flex; /* Use flexbox */
+            justify-content: space-between; /* Distribute items evenly along the main axis */
+            margin-bottom: 20px; /* Adjust margin as needed */
+        }
+        .website-link {
+            display: inline-block;
+            margin-bottom: -10px;
+            padding: 10px;
+            background-color: #442F91;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            width: 50%; /* Adjust the width to fit two links in one line */
+            box-sizing: border-box; /* Include padding and border in the width calculation */
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px; /* Increase the padding to increase size vertically */
+            text-align: center;
+            margin-top: auto; /* Push the footer to the bottom */
+            flex-shrink: 0; /* Prevent footer from shrinking */
+        }
+        footer a {
+            color: #fff; /* Set the color to white */
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            opacity: 0;
+            transition: opacity 0.5s;
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>বহুপদী ও বহুপদী সমীকরণ</h1>
+        <div id="name">Rafsan Mahruz</div>
+        <nav>
+            <a href="Homepage.html">Homepage</a>
+            <a href="All Subjects.html">All Subjects</a>
+            <a href="Higher Math.html">All Chapters</a>
+        </nav>
+    </header>
+    <section>
+        <div class="papers">
+            <h2 class="paper-title custom-link">Abhi<br>(24)</h2>
+            <h2 class="paper-title custom-link">ACS FRB<br>(Abhi)</h2>
+        </div>
+        <div class="lecture-group">
+            <a class="website-link custom-link" href="https://math24.aparsclassroom.com/Math24/Cycle-3/Paper-2/Chapter-4" target="_blank">Class</a>
+            <a class="website-link custom-link" href="https://frb24.aparsclassroom.com/Math/Paper-2/Chapter-4" target="_blank">Class</a>
+        </div>
+        <div class="lecture-group">
+            <a class="website-link custom-link" href="" target="_blank">Class Slides</a>
+            <a class="website-link custom-link" href="" target="_blank">Class Slides</a>
+        </div>
+     </section>
+     <section>
+        <div class="papers">
+            <h2 class="paper-title custom-link">Udvash FRC</h2>
+            <h2 class="paper-title custom-link">Biggan Class</h2>
+        </div>
+        <div class="lecture-group">
+            <a class="website-link custom-link" href="" target="_blank">Class</a>
+            <a class="website-link custom-link" href="https://www.bigganclass.com/s/courses/6501b45ee4b05766cf40af81/take" target="_blank">Class</a>
+        </div>
+        <div class="lecture-group">
+            <a class="website-link custom-link" href="" target="_blank">Class Slides</a>
+            <a class="website-link custom-link" href="" target="_blank">Class Slides</a>
+        </div>
+     </section>
+     <section>
+        <div class="papers">
+            <h2 class="paper-title custom-link">ACS<br>Engineering</h2>
+            <h2 class="paper-title custom-link">Udvash<br>Engineering</h2>
+        </div>
+        <div class="lecture-group">
+            <a class="website-link custom-link" href="https://engineering24.aparsclassroom.com/Math/Paper-2/Chapter-4" target="_blank">Class</a>
+            <a class="website-link custom-link" href="" target="_blank">Class</a>
+        </div>
+        <div class="lecture-group">
+            <a class="website-link custom-link" href="" target="_blank">Class Slides</a>
+            <a class="website-link custom-link" href="" target="_blank">Class Slides</a>
+        </div>
+     </section>
+     <section>
+        <hr><hr><hr>
+        <div class="lecture-group">
+            <a class="website-link custom-link" href="" target="_blank">Books</a>
+            <a class="website-link custom-link" href="" target="_blank">Practice Sheets</a>
+        </div>
+        <div class="lecture-group">
+            <a class="website-link custom-link" href="" target="_blank">Problems</a>
+            <a class="website-link custom-link" href="" target="_blank">Extras</a>
+        </div>
+     </section>
+
+
+
+
+
+
+
+
+
+
+    <!-- Notification for link copied -->
+    <div class="notification" id="copiedNotification">Link copied to clipboard</div>
+
+<script>
+    // Event listener to handle right-click context menu
+    var links = document.querySelectorAll('.website-link');
+    links.forEach(function(link) {
+        link.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+
+            var originalText = link.innerText.trim();
+
+            var contextMenu = document.createElement('div');
+            contextMenu.classList.add('context-menu');
+            contextMenu.style.position = 'absolute';
+            contextMenu.style.top = e.clientY + 'px';
+            contextMenu.style.left = e.clientX + 'px';
+            contextMenu.style.border = '1px solid #999';
+            contextMenu.style.background = '#fff';
+            contextMenu.style.padding = '5px';
+            contextMenu.style.borderRadius = '5px';
+            contextMenu.style.zIndex = '9999';
+
+            var openInNewTabOption = document.createElement('div');
+            openInNewTabOption.textContent = 'Open link in new tab';
+            openInNewTabOption.style.cursor = 'pointer';
+            openInNewTabOption.style.padding = '5px 0';
+            openInNewTabOption.addEventListener('click', function() {
+                window.open(link.href, '_blank');
+                contextMenu.remove();
+            });
+
+            var copyLinkOption = document.createElement('div');
+            copyLinkOption.textContent = 'Copy link';
+            copyLinkOption.style.cursor = 'pointer';
+            copyLinkOption.style.padding = '5px 0';
+            copyLinkOption.addEventListener('click', function() {
+                navigator.clipboard.writeText(link.href)
+                    .then(function() {
+                        var notification = document.getElementById('copiedNotification');
+                        notification.style.opacity = 1;
+                        setTimeout(function() {
+                            notification.style.opacity = 0;
+                        }, 1000);
+                    })
+                    .catch(function(err) {
+                        console.error('Failed to copy link: ', err);
+                    });
+                contextMenu.remove();
+            });
+
+            var editNameOption = document.createElement('div');
+            editNameOption.textContent = 'Edit Name';
+            editNameOption.style.cursor = 'pointer';
+            editNameOption.style.padding = '5px 0';
+            editNameOption.addEventListener('click', function() {
+                var editableText = document.createElement('input');
+                editableText.type = 'text';
+                editableText.value = originalText;
+                editableText.style.width = link.offsetWidth + 'px';
+                editableText.style.height = link.offsetHeight + 'px';
+                editableText.style.border = 'none';
+                editableText.style.fontFamily = 'inherit';
+                editableText.style.fontSize = 'inherit';
+                editableText.style.padding = '0';
+                editableText.style.margin = '0';
+                editableText.style.background = 'none';
+                editableText.style.color = 'inherit';
+                editableText.style.textAlign = 'center';
+                editableText.style.outline = '1px solid #999';
+                editableText.style.borderRadius = '5px';
+                editableText.style.boxSizing = 'border-box';
+
+                link.innerHTML = '';
+                link.appendChild(editableText);
+
+                editableText.focus();
+
+                editableText.addEventListener('keypress', function(event) {
+                    if (event.key === 'Enter') {
+                        event.preventDefault();
+                        var newName = editableText.value.trim();
+                        if (newName) {
+                            link.innerText = newName;
+                            saveLinkNames();
+                        }
+                    }
+                });
+
+                editableText.addEventListener('blur', function() {
+                    var newName = editableText.value.trim();
+                    if (newName) {
+                        link.innerText = newName;
+                        saveLinkNames();
+                    }
+                });
+
+                contextMenu.remove();
+            });
+
+            contextMenu.appendChild(openInNewTabOption);
+            contextMenu.appendChild(copyLinkOption);
+            contextMenu.appendChild(editNameOption);
+
+            document.body.appendChild(contextMenu);
+
+            document.addEventListener('click', function(event) {
+                if (!contextMenu.contains(event.target)) {
+                    contextMenu.remove();
+                }
+            });
+        });
+
+        // Double click event for inline editing
+        link.addEventListener('dblclick', function() {
+            var originalText = link.innerText.trim();
+            var editableText = document.createElement('input');
+            editableText.type = 'text';
+            editableText.value = originalText;
+            editableText.style.width = link.offsetWidth + 'px';
+            editableText.style.height = link.offsetHeight + 'px';
+            editableText.style.border = 'none';
+            editableText.style.fontFamily = 'inherit';
+            editableText.style.fontSize = 'inherit';
+            editableText.style.padding = '0';
+            editableText.style.margin = '0';
+            editableText.style.background = 'none';
+            editableText.style.color = 'inherit';
+            editableText.style.textAlign = 'center';
+            editableText.style.outline = '1px solid #999';
+            editableText.style.borderRadius = '5px';
+            editableText.style.boxSizing = 'border-box';
+
+            link.innerHTML = '';
+            link.appendChild(editableText);
+
+            editableText.focus();
+
+            editableText.addEventListener('blur', function() {
+                var newName = editableText.value.trim();
+                if (newName) {
+                    link.innerText = newName;
+                    saveLinkNames();
+                }
+            });
+
+            editableText.addEventListener('keypress', function(event) {
+                if (event.key === 'Enter') {
+                    event.preventDefault();
+                    var newName = editableText.value.trim();
+                    if (newName) {
+                        link.innerText = newName;
+                        saveLinkNames();
+                    }
+                }
+            });
+        });
+    });
+
+    // Function to save the edited link names to localStorage
+    function saveLinkNames() {
+        var linkNames = {};
+        links.forEach(function(link) {
+            linkNames[link.getAttribute('href')] = link.innerText;
+        });
+        localStorage.setItem('linkNames', JSON.stringify(linkNames));
+    }
+
+    // Load the edited link names from localStorage
+    function loadLinkNames() {
+        var linkNames = JSON.parse(localStorage.getItem('linkNames'));
+        if (linkNames) {
+            links.forEach(function(link) {
+                var newName = linkNames[link.getAttribute('href')];
+                if (newName) {
+                    link.innerText = newName;
+                }
+            });
+        }
+    }
+
+    // Call the function to load edited link names when the page loads
+    loadLinkNames();
+</script>
+
+
+
+<script>
+    // Function to handle inline editing of titles
+    function enableInlineEditing() {
+        var titles = document.querySelectorAll('.paper-title');
+        titles.forEach(function(title) {
+            title.addEventListener('dblclick', function() {
+                var originalText = title.innerText.trim();
+                var editableText = document.createElement('textarea');
+                editableText.value = originalText;
+                editableText.classList.add('inline-edit');
+                title.innerHTML = '';
+                title.appendChild(editableText);
+
+                editableText.focus();
+
+                // Event listener for capturing Enter key press
+                editableText.addEventListener('keydown', function(event) {
+                    if (event.key === 'Enter' && !event.shiftKey) {
+                        event.preventDefault();
+                        var selectionStart = editableText.selectionStart;
+                        var selectionEnd = editableText.selectionEnd;
+                        var textBefore = editableText.value.substring(0, selectionStart);
+                        var textAfter = editableText.value.substring(selectionEnd);
+                        editableText.value = textBefore + '\n' + textAfter;
+                        editableText.setSelectionRange(selectionStart + 1, selectionStart + 1);
+                    }
+                });
+
+                // Event listener for handling blur (losing focus)
+                editableText.addEventListener('blur', function() {
+                    var newText = editableText.value.trim();
+                    if (newText) {
+                        title.innerText = newText;
+                        saveTitleChanges();
+                    }
+                });
+            });
+        });
+    }
+
+    // Function to save title changes to localStorage
+    function saveTitleChanges() {
+        var titles = document.querySelectorAll('.paper-title');
+        var titleTexts = [];
+        titles.forEach(function(title) {
+            titleTexts.push(title.innerText);
+        });
+        localStorage.setItem('paperTitles', JSON.stringify(titleTexts));
+    }
+
+    // Function to load titles from localStorage
+    function loadTitles() {
+        var titles = document.querySelectorAll('.paper-title');
+        var titleTexts = JSON.parse(localStorage.getItem('paperTitles'));
+        if (titleTexts && titleTexts.length === titles.length) {
+            titles.forEach(function(title, index) {
+                title.innerText = titleTexts[index];
+            });
+        }
+    }
+
+    // Call functions to enable inline editing and load titles when the page loads
+    enableInlineEditing();
+    loadTitles();
+</script>
+
+
+
+
+
+
+
+
+
+    
+     <footer>
+            <a href="https://github.com/RafsanX/rafsan/edit/main/%E0%A6%9C%E0%A6%9F%E0%A6%BF%E0%A6%B2%20%E0%A6%B8%E0%A6%82%E0%A6%96%E0%A7%8D%E0%A6%AF%E0%A6%BE.html" target="_blank">Edit<br></a>
+     </footer>
+</body>
+</html>
