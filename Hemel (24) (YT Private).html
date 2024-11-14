@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom YouTube Video Player with Sidebar</title>
+  <style>
+    body {
+      display: flex;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    .sidebar {
+      width: 200px;
+      height: 100vh;
+      overflow-y: auto;
+      background-color: #f4f4f4;
+      padding: 10px;
+      border-right: 2px solid #ddd;
+      display: none;
+    }
+    .sidebar h3 {
+      text-align: center;
+      font-size: 18px;
+    }
+    .video-item {
+      padding: 8px;
+      margin: 5px 0;
+      cursor: pointer;
+      background-color: #ddd;
+      border-radius: 4px;
+    }
+    .video-item:hover {
+      background-color: #bbb;
+    }
+    .content {
+      flex: 1;
+      padding: 20px;
+    }
+    #player {
+      width: 100%;
+      height: 60vh;
+      transition: width 0.3s ease, height 0.3s ease;
+    }
+    .controls, .speed-controls {
+      margin-top: 10px;
+    }
+    .controls button, .speed-controls button {
+      margin: 5px;
+    }
+    .video-info {
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    .video-info h2 {
+      margin: 0;
+      font-size: 20px;
+    }
+    .video-info p {
+      font-size: 14px;
+    }
+    .time-info {
+      display: none;
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    #menuButton {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+/* Styles for full-screen mode */
+.full-screen .controls-overlay {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 5px;
+  z-index: 10;
+}
+
+.full-screen .controls, .full-screen .speed-controls {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  position: fixed;
+  bottom: 60px; /* Adjust this value if needed */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+  </style>
+</head>
+<body>
+
+<div id="menuButton" onclick="toggleSidebar()">☰</div>
+<div class="sidebar" id="sidebar">
+  <h3>Video List</h3>
+<div class="video-item" onclick="loadVideoAtIndex(0)">জৈব রসায়ন Lecture 01</div>
+<div class="video-item" onclick="loadVideoAtIndex(1)">জৈব রসায়ন Lecture 02</div>
+<div class="video-item" onclick="loadVideoAtIndex(2)">জৈব রসায়ন Lecture 03</div>
+<div class="video-item" onclick="loadVideoAtIndex(3)">জৈব রসায়ন Lecture 04</div>
+<div class="video-item" onclick="loadVideoAtIndex(4)">জৈব রসায়ন Lecture 05</div>
+<div class="video-item" onclick="loadVideoAtIndex(5)">জৈব রসায়ন Lecture 06</div>
+<div class="video-item" onclick="loadVideoAtIndex(6)">জৈব রসায়ন Lecture 07</div>
+<div class="video-item" onclick="loadVideoAtIndex(7)">জৈব রসায়ন Lecture 08</div>
+<div class="video-item" onclick="loadVideoAtIndex(8)">জৈব রসায়ন Lecture 09</div>
+<div class="video-item" onclick="loadVideoAtIndex(9)">জৈব রসায়ন Lecture 10</div>
+<div class="video-item" onclick="loadVideoAtIndex(10)">জৈব রসায়ন Lecture 11</div>
+<div class="video-item" onclick="loadVideoAtIndex(11)">জৈব রসায়ন Lecture 12</div>
+<div class="video-item" onclick="loadVideoAtIndex(12)">জৈব রসায়ন Lecture 13</div>
+<div class="video-item" onclick="loadVideoAtIndex(13)">জৈব রসায়ন Lecture 14</div>
+<div class="video-item" onclick="loadVideoAtIndex(14)">জৈব রসায়ন Lecture 15</div>
+<div class="video-item" onclick="loadVideoAtIndex(15)">জৈব রসায়ন Lecture 16</div>
+<div class="video-item" onclick="loadVideoAtIndex(16)">জৈব রসায়ন Lecture 17</div>
+<div class="video-item" onclick="loadVideoAtIndex(17)">জৈব রসায়ন Lecture 18</div>
+<div class="video-item" onclick="loadVideoAtIndex(18)">জৈব রসায়ন Lecture 19</div>
+<div class="video-item" onclick="loadVideoAtIndex(19)">জৈব রসায়ন Lecture 20</div>
+<div class="video-item" onclick="loadVideoAtIndex(20)">জৈব রসায়ন Lecture 21</div>
+<div class="video-item" onclick="loadVideoAtIndex(21)">জৈব রসায়ন Lecture 22</div>
+<div class="video-item" onclick="loadVideoAtIndex(22)">জৈব রসায়ন Lecture 23</div>
+<div class="video-item" onclick="loadVideoAtIndex(23)">জৈব রসায়ন Lecture 24</div>
+<div class="video-item" onclick="loadVideoAtIndex(24)">জৈব রসায়ন Lecture 25 (Part 01)</div>
+<div class="video-item" onclick="loadVideoAtIndex(25)">জৈব রসায়ন Lecture 25 (Part 02)</div>
+<div class="video-item" onclick="loadVideoAtIndex(26)">জৈব রসায়ন Lecture 26</div>
+<div class="video-item" onclick="loadVideoAtIndex(27)">জৈব রসায়ন Lecture 27</div>
+<div class="video-item" onclick="loadVideoAtIndex(28)">জৈব রসায়ন Lecture 28</div>
+<div class="video-item" onclick="loadVideoAtIndex(29)">জৈব রসায়ন Lecture 29</div>
+<div class="video-item" onclick="loadVideoAtIndex(30)">জৈব রসায়ন Lecture 30 (Part 01)</div>
+<div class="video-item" onclick="loadVideoAtIndex(31)">জৈব রসায়ন Lecture 30 (Part 02)</div>
+<div class="video-item" onclick="loadVideoAtIndex(32)">জৈব রসায়ন Lecture 31 (Part 01)</div>
+<div class="video-item" onclick="loadVideoAtIndex(33)">জৈব রসায়ন Lecture 31 (Part 02)</div>
+<div class="video-item" onclick="loadVideoAtIndex(34)">জৈব রসায়ন Lecture 32</div>
+<div class="video-item" onclick="loadVideoAtIndex(35)">জৈব রসায়ন Lecture 33</div>
+<div class="video-item" onclick="loadVideoAtIndex(36)">জৈব রসায়ন Lecture 34 (Part 01)</div>
+<div class="video-item" onclick="loadVideoAtIndex(37)">জৈব রসায়ন Lecture 34 (Part 02)</div>
+<div class="video-item" onclick="loadVideoAtIndex(38)">জৈব রসায়ন Lecture 35</div>
+<div class="video-item" onclick="loadVideoAtIndex(39)">জৈব রসায়ন Lecture 36 (Part 01)</div>
+<div class="video-item" onclick="loadVideoAtIndex(40)">জৈব রসায়ন Lecture 36 (Part 02)</div>
+<div class="video-item" onclick="loadVideoAtIndex(41)">জৈব রসায়ন Lecture 37</div>
+<div class="video-item" onclick="loadVideoAtIndex(42)">জৈব রসায়ন Lecture 38</div>
+<div class="video-item" onclick="loadVideoAtIndex(43)">জৈব রসায়ন Lecture 39</div>
+<div class="video-item" onclick="loadVideoAtIndex(44)">জৈব রসায়ন Lecture 40</div>
+</div>
+
+<div class="content">
+  <div class="video-info">
+    <h2 id="videoTitle">জৈব রসায়ন Lecture 01</h2>
+    <p id="videoDescription">সূচনা, প্রাণশক্তি মতবাদ, জৈব যৌগের প্রথম বিক্রিয়া...</p>
+  </div>
+  <div id="player"></div>
+  <div class="time-info" id="timeInfo">
+    <p id="timeDisplay"></p>
+  </div>
+  <div class="controls"><center>
+    <button onclick="skip(-5)">⏪5s</button>
+    <button onclick="skip(5)">5s⏩</button>
+    <button onclick="skip(-10)">⏪10s</button>
+    <button onclick="skip(10)">10s⏩</button></center>
+  </div>
+  <div class="speed-controls"><center>
+    <button onclick="setPlaybackRate(1)">1x</button>
+    <button onclick="setPlaybackRate(1.25)">1.25x</button>
+    <button onclick="setPlaybackRate(1.5)">1.5x</button>
+    <button onclick="setPlaybackRate(1.75)">1.75x</button>
+    <button onclick="setPlaybackRate(2)">2x</button></center>
+  </div>
+  <div class="controls"><center>
+    <button onclick="previousVideo()">Previous Video</button>
+    <button onclick="nextVideo()">Next Video</button></center>
+  </div>
+</div>
+
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+  let player, currentVideoIndex = 0;
+  const videoQueue = [
+    { url: 'https://www.youtube.com/watch?v=iEg2jKWDHHc', title: 'জৈব রসায়ন Lecture 01', description: 'সূচনা, প্রাণশক্তি মতবাদ, জৈব যৌগের প্রথম বিক্রিয়া, জৈব যৌগের আধিক্যতার কারণ, জৈব যৌগের শ্রেণীবিভাগ, কার্বন সংখ্যার ভিত্তিতে নাম, সমগোত্রীয় শ্রেণী ও এর বৈশিষ্ট্য, কার্যকরী মূলক, বিভিন্ন সমগোত্রীয় শ্রেণীর কার্যকরী মূলক, Question Bank Solve' },
+    { url: 'https://www.youtube.com/watch?v=qhtNQ0cy_F0', title: 'জৈব রসায়ন Lecture 02', description: 'কার্যকরী মূলকের অগ্রাধিকার ক্রমের ছক, Bond Line Notation of Organic Compound, সমগোত্রীয় শ্রেণির সংকেত বের করার নিয়ম, MCQ & Math Solve, জৈব যৌগের নামকরণ Part 01' },
+    { url: 'https://www.youtube.com/watch?v=88_CMhUGJXw', title: 'জৈব রসায়ন Lecture 03', description: 'জৈব যৌগের নামকরণ Part 02' },
+    { url: 'https://www.youtube.com/watch?v=SGGiwXRsIG0', title: 'জৈব রসায়ন Lecture 04', description: 'জৈব যৌগের নামকরণ Part 03' },
+    { url: 'https://www.youtube.com/watch?v=cY2eGTsdyTQ', title: 'জৈব রসায়ন Lecture 05', description: 'জৈব যৌগের নামকরণ Part 04, MCQ & Math Solve' },
+    { url: 'https://www.youtube.com/watch?v=aYME3sIxzyw', title: 'জৈব রসায়ন Lecture 06', description: 'জৈব যৌগের নামকরণ Related Math Solve, জৈব যৌগের সংকরায়ন, সমাণুতা ও তার প্রকারভেদ Part 01' },
+    { url: 'https://www.youtube.com/watch?v=etUuwxQsXlg', title: 'জৈব রসায়ন Lecture 07', description: 'সমাণুতা ও তার প্রকারভেদ Part 02, Math Solve' },
+    { url: 'https://www.youtube.com/watch?v=pKfrEopsZCg', title: 'জৈব রসায়ন Lecture 08', description: 'সমাণুতা ও তার প্রকারভেদ Part 03, Math Solve' },
+    { url: 'https://www.youtube.com/watch?v=yGby-881EeM', title: 'জৈব রসায়ন Lecture 09', description: 'সমাণুতা Related Math & MCQ Solve' },
+    { url: 'https://www.youtube.com/watch?v=L13WMkxCcII', title: 'জৈব রসায়ন Lecture 10', description: 'আপেক্ষিক আবর্তন, সমযোজী বন্ধনের বিভাজন-সুষম বিভাজন, ফ্রি রেডিকেল, বিষম বিভাজন, আবেশীয় প্রভাব, কার্বোক্যাটায়ন, কার্বানায়ন' },
+    { url: 'https://www.youtube.com/watch?v=QyvL6WoHfVQ', title: 'জৈব রসায়ন Lecture 11', description: 'বিকারক, ইলেক্ট্রোফাইল, নিউক্লিওফাইল, জৈব বিক্রিয়ার শ্রেণীবিভাগ, Important concept of জৈব বিক্রিয়া, অ্যালকেন Part 01' },
+    { url: 'https://www.youtube.com/watch?v=ogQfvWTpiek', title: 'জৈব রসায়ন Lecture 12', description: 'অ্যালকেন Part 02' },
+    { url: 'https://www.youtube.com/watch?v=Fzb1QG9p6E4', title: 'জৈব রসায়ন Lecture 13', description: 'অ্যালকেন Part 03, অ্যালকেন Related Math & MCQ Solve' },
+    { url: 'https://www.youtube.com/watch?v=3khfH3v2Bps', title: 'জৈব রসায়ন Lecture 14', description: 'অ্যালকিন Part 01' },
+    { url: 'https://www.youtube.com/watch?v=L5IFKA9QC5A', title: 'জৈব রসায়ন Lecture 15', description: 'অ্যালকিন Part 02, Math & MCQ Solve' },
+    { url: 'https://www.youtube.com/watch?v=TuLIsbbUnJk', title: 'জৈব রসায়ন Lecture 16', description: 'অ্যালকিন Part 03, Math & MCQ Solve, অ্যালকাইন Part 01' },
+    { url: 'https://www.youtube.com/watch?v=sEulNHeNdNA', title: 'জৈব রসায়ন Lecture 17', description: 'অ্যালকাইন Part 02' },
+    { url: 'https://www.youtube.com/watch?v=P9kRfIplN3w', title: 'জৈব রসায়ন Lecture 18', description: 'অ্যালকাইন Part 03, MCQ Solve, অ্যারোমেটিক যৌগের সূচনা, হাকেল নিয়ম' },
+    { url: 'https://www.youtube.com/watch?v=nECyaxwQc3Q', title: 'জৈব রসায়ন Lecture 19', description: 'হাকেল নিয়মের Example, Math Solve, বেনজিন Part 01, অ্যারাইল মূলক' },
+    { url: 'https://www.youtube.com/watch?v=YenDfRh5kRs', title: 'জৈব রসায়ন Lecture 20', description: 'বেনজিন Part 02' },
+    { url: 'https://www.youtube.com/watch?v=cS57tXHyj4s', title: 'জৈব রসায়ন Lecture 21', description: 'বেনজিন Part 03, Question Bank Solve' },
+    { url: 'https://www.youtube.com/watch?v=g666b55HTDc', title: 'জৈব রসায়ন Lecture 22', description: 'Resonance, MCQ Solve, টলুইন Part 01' },
+    { url: 'https://www.youtube.com/watch?v=_Nq4wzVLKlg', title: 'জৈব রসায়ন Lecture 23', description: 'টলুইন Part 02, Engineering Question Bank Solve' },
+    { url: 'https://www.youtube.com/watch?v=1R7tEOpDtpY', title: 'জৈব রসায়ন Lecture 24', description: 'Engineering Question Bank Solve, MCQ Solve, অ্যালকাইল হ্যালাইড Part 01' },
+    { url: 'https://www.youtube.com/watch?v=H2w0lED4i9w', title: 'জৈব রসায়ন Lecture 25 (Part 01)', description: 'অ্যালকাইল হ্যালাইড Part 02' },
+    { url: 'https://www.youtube.com/watch?v=mhFqHAs4yMc', title: 'জৈব রসায়ন Lecture 25 (Part 02)', description: 'অ্যালকাইল হ্যালাইড Part 02' },
+    { url: 'https://www.youtube.com/watch?v=iwKomRVb_B8', title: 'জৈব রসায়ন Lecture 26', description: 'অ্যালকোহল Part 01' },
+    { url: 'https://www.youtube.com/watch?v=OZQfUtHFNew', title: 'জৈব রসায়ন Lecture 27', description: 'অ্যালকোহল Part 02' },
+    { url: 'https://www.youtube.com/watch?v=APKBp4dIYrs', title: 'জৈব রসায়ন Lecture 28', description: 'অ্যালকোহল Part 03, Engineering Question Bank Solve, MCQ Solve' },
+    { url: 'https://www.youtube.com/watch?v=Jvk4W0uPG-A', title: 'জৈব রসায়ন Lecture 29', description: 'ফেনল' },
+    { url: 'https://www.youtube.com/watch?v=NLm0x6h8Dj8', title: 'জৈব রসায়ন Lecture 30 (Part 01)', description: 'Engineering Question Bank Solve, MCQ Solve' },
+    { url: 'https://www.youtube.com/watch?v=a4jtl6Z20v4', title: 'জৈব রসায়ন Lecture 30 (Part 02)', description: 'ইথার, Engineering Question Bank Solve, MCQ Solve, অ্যালডিহাইড ও কিটোন Part 01' },
+    { url: 'https://www.youtube.com/watch?v=NGTv9KuME_w', title: 'জৈব রসায়ন Lecture 31 (Part 01)', description: 'অ্যালডিহাইড ও কিটোন Part 02' },
+    { url: 'https://www.youtube.com/watch?v=WaYqr6ifVK8', title: 'জৈব রসায়ন Lecture 31 (Part 2)', description: 'অ্যালডিহাইড ও কিটোন Part 03' },
+    { url: 'https://www.youtube.com/watch?v=hY8aG0pxlVc', title: 'জৈব রসায়ন Lecture 32', description: 'অ্যালডিহাইড ও কিটোন Part 04, Engineering MCQ Solve, MCQ Solve' },
+    { url: 'https://www.youtube.com/watch?v=0XeNIYgymB4', title: 'জৈব রসায়ন Lecture 33', description: 'কার্বোক্সিলিক এসিড Part 01' },
+    { url: 'https://www.youtube.com/watch?v=jrLpxzXIfqE', title: 'জৈব রসায়ন Lecture 34 (Part 01)', description: 'কার্বোক্সিলিক এসিড Part 02' },
+    { url: 'https://www.youtube.com/watch?v=vaB-0NrDrP0', title: 'জৈব রসায়ন Lecture 34 (Part 02)', description: 'কার্বোক্সিলিক এসিড Part 03, Engineering Question Bank Solve, MCQ Solve, অ্যামিন Part 01' },
+    { url: 'https://www.youtube.com/watch?v=5LbtEAa9izw', title: 'জৈব রসায়ন Lecture 35', description: 'অ্যামিন Part 02, অ্যানিলিন, ডায়াজেনিয়াম লবণ, Engineering Question Bank Solve' },
+    { url: 'https://www.youtube.com/watch?v=unamYGus-b4', title: 'জৈব রসায়ন Lecture 36 (Part 1)', description: 'অ্যামিন, অ্যানিলিন, ডায়াজেনিয়াম লবণ MCQ Solve, গ্লিসারিন' },
+    { url: 'https://www.youtube.com/watch?v=ec7qotlOfik', title: 'জৈব রসায়ন Lecture 36 (Part 2)', description: 'নাইট্রোগ্লিসারিন, TNT, ডেটল, প্যারাসিটামল, MCQ Solve, পলিমার, Engineering Question Bank Solve' },
+    { url: 'https://www.youtube.com/watch?v=0HK2X0zYNPs', title: 'জৈব রসায়ন Lecture 37', description: 'বায়োপলিমার Part 01, Question Bank Solve' },
+    { url: 'https://www.youtube.com/watch?v=8k8RVbuDRjk', title: 'জৈব রসায়ন Lecture 38', description: 'বায়োপলিমার Part 02, Question Bank Solve, বিশুদ্ধতা, IR রশ্মি দ্বারা মুলক শনাক্তকরণ' },
+    { url: 'https://www.youtube.com/watch?v=EH-ciPj_ucE', title: 'জৈব রসায়ন Lecture 39', description: 'Board CQ Solve Part 02' },
+    { url: 'https://www.youtube.com/watch?v=EH-ciPj_ucE', title: 'জৈব রসায়ন Lecture 40', description: 'Board CQ Solve Part 02' },  ];
+
+  function getVideoId(url) {
+    return url.split('v=')[1];
+  }
+
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+      videoId: getVideoId(videoQueue[currentVideoIndex].url),
+      playerVars: { 'controls': 1, 'modestbranding': 1, 'rel': 0 },
+      events: {
+        'onReady': onPlayerReady,
+      }
+    });
+    loadVideoDetails();
+  }
+
+  function onPlayerReady(event) {
+    player.setPlaybackRate(2);
+    event.target.playVideo();
+    setMaxQuality();
+    updateVideoTimeInfo();
+  }
+
+  function loadVideoAtIndex(index) {
+    currentVideoIndex = index;
+    loadVideo(videoQueue[index].url, videoQueue[index].title, videoQueue[index].description);
+  }
+
+  function loadVideo(url, title, description) {
+    player.loadVideoById(getVideoId(url));
+    document.getElementById('videoTitle').textContent = title;
+    document.getElementById('videoDescription').textContent = description;
+    player.setPlaybackRate(2);
+    setMaxQuality();
+  }
+
+  function setMaxQuality() {
+    const qualities = player.getAvailableQualityLevels();
+    if (qualities.length) player.setPlaybackQuality(qualities[0]);
+  }
+
+  function skip(seconds) {
+    player.seekTo(player.getCurrentTime() + seconds, true);
+  }
+
+  function setPlaybackRate(rate) {
+    player.setPlaybackRate(rate);
+  }
+
+  function previousVideo() {
+    if (currentVideoIndex > 0) {
+      currentVideoIndex--;
+      loadVideoAtIndex(currentVideoIndex);
+    }
+  }
+
+  function nextVideo() {
+    if (currentVideoIndex < videoQueue.length - 1) {
+      currentVideoIndex++;
+      loadVideoAtIndex(currentVideoIndex);
+    }
+  }
+
+  function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.style.display = sidebar.style.display === 'none' ? 'block' : 'none';
+  }
+
+  function toggleFullScreen() {
+    const iframe = document.getElementById("player");
+    if (!document.fullscreenElement) {
+      iframe.requestFullscreen();
+    } else {
+      document.exitFullscreen();
+    }
+  }
+
+  function toggleMute() {
+    player.isMuted() ? player.unMute() : player.mute();
+  }
+
+  function togglePlayPause() {
+    player.getPlayerState() === YT.PlayerState.PLAYING ? player.pauseVideo() : player.playVideo();
+  }
+
+  function adjustVolume(change) {
+    player.setVolume(Math.min(100, Math.max(0, player.getVolume() + change)));
+  }
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "F" || event.key === "f") toggleFullScreen();
+    else if (event.key === "M" || event.key === "m") toggleMute();
+    else if (event.key === " ") togglePlayPause();
+    else if (event.key === "ArrowLeft") skip(-10);
+    else if (event.key === "ArrowRight") skip(10);
+    else if (event.key === "ArrowUp") adjustVolume(5);
+    else if (event.key === "ArrowDown") adjustVolume(-5);
+    else if (event.key === "T" || event.key === "t") toggleTimeInfo();
+  });
+
+
+  function updateVideoTimeInfo() {
+    const current = player.getCurrentTime();
+    const duration = player.getDuration();
+    const remaining = duration - current;
+    const playbackRate = player.getPlaybackRate();
+
+    const formatTime = (time) => {
+      const hrs = Math.floor(time / 3600);
+      const mins = Math.floor((time % 3600) / 60);
+      const secs = Math.floor(time % 60);
+      return `${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    };
+
+    const display = `
+      <strong>Duration</strong>: ${formatTime(duration)} // 
+      <strong>2x</strong>: ${formatTime(duration / 2)}
+      <br>
+      <strong>Current&nbsp;&nbsp;</strong>: ${formatTime(current)} // 
+      <strong>2x</strong>: ${formatTime(current / 2)}
+      <br>
+      <strong>Left&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>: ${formatTime(remaining)} // 
+      <strong>2x</strong>: ${formatTime(remaining / 2)}
+    `;
+
+    document.getElementById('timeDisplay').innerHTML = display;
+  }
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "T" || event.key === "t") {
+      document.getElementById('timeInfo').style.display = 'block';
+      const interval = setInterval(updateVideoTimeInfo, 100);
+      document.addEventListener("keyup", (event) => {
+        if (event.key === "T" || event.key === "t") {
+          clearInterval(interval);
+          document.getElementById('timeInfo').style.display = 'none';
+        }
+      }, { once: true });
+    }
+  });
+  // Detect when full screen is activated/deactivated
+  document.addEventListener('fullscreenchange', () => {
+    const isFullScreen = !!document.fullscreenElement;
+    const content = document.querySelector('.content');
+    
+    if (isFullScreen) {
+      content.classList.add('full-screen');
+    } else {
+      content.classList.remove('full-screen');
+    }
+  });
+</script>
+</body>
+</html>
