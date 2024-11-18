@@ -559,6 +559,58 @@ function onPlayerReady(event) {
     player.setVolume(Math.min(100, Math.max(0, player.getVolume() + change)));
   }
 
+  // Save the current video index and time in localStorage
+  function savePlaybackState() {
+    const currentState = {
+      videoIndex: currentVideoIndex,
+      currentTime: player.getCurrentTime(),
+    };
+    localStorage.setItem("playbackState", JSON.stringify(currentState));
+  }
+
+  // Restore the playback state
+  function restorePlaybackState() {
+    const savedState = JSON.parse(localStorage.getItem("playbackState"));
+    if (savedState) {
+      currentVideoIndex = savedState.videoIndex;
+      const savedTime = savedState.currentTime;
+
+      loadVideoAtIndex(currentVideoIndex);
+
+      // Ensure seeking only happens after the player is fully ready
+      player.addEventListener("onStateChange", function handleStateChange(event) {
+        if (event.data === YT.PlayerState.CUED) {
+          player.seekTo(savedTime, true);
+          player.playVideo(); // Optional: Start playback automatically
+          player.removeEventListener("onStateChange", handleStateChange); // Remove listener after seeking
+        }
+      });
+    }
+  }
+
+  // Hook into player events
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player("player", {
+      videoId: getVideoId(videoQueue[currentVideoIndex].url),
+      playerVars: { controls: 1, modestbranding: 1, rel: 0 },
+      events: {
+        onReady: () => {
+          restorePlaybackState(); // Restore state once player is ready
+          setMaxQuality();
+          monitorPlaybackState();
+        },
+      },
+    });
+  }
+
+  // Monitor and save playback state periodically
+  function monitorPlaybackState() {
+    setInterval(savePlaybackState, 5000); // Save every 5 seconds
+  }
+
+  // Save playback state before navigating away
+  window.addEventListener("beforeunload", savePlaybackState);
+  
   document.addEventListener("keydown", (event) => {
     if (["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown", " "].includes(event.key)) {
       event.preventDefault(); // Stop default browser behavior
