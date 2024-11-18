@@ -563,7 +563,7 @@ function onPlayerReady(event) {
   function savePlaybackState() {
     const currentState = {
       videoIndex: currentVideoIndex,
-      currentTime: player.getCurrentTime()
+      currentTime: player?.getCurrentTime() || 0, // Handle cases where the player isn't initialized
     };
     localStorage.setItem("playbackState", JSON.stringify(currentState));
   }
@@ -572,30 +572,50 @@ function onPlayerReady(event) {
   function restorePlaybackState() {
     const savedState = JSON.parse(localStorage.getItem("playbackState"));
     if (savedState) {
-      currentVideoIndex = savedState.videoIndex;
-      loadVideoAtIndex(currentVideoIndex);
-      player.addEventListener("onReady", () => {
-        player.seekTo(savedState.currentTime, true);
+      currentVideoIndex = savedState.videoIndex || 0; // Default to the first video
+      const savedTime = savedState.currentTime || 0;
+
+      loadVideoAtIndex(currentVideoIndex); // Load the saved video
+
+      player.addEventListener("onReady", function seekToSavedTime() {
+        player.seekTo(savedTime, true); // Seek to the saved time
+        player.removeEventListener("onReady", seekToSavedTime); // Prevent redundant calls
       });
     }
   }
 
   // Monitor and save playback state periodically
   function monitorPlaybackState() {
-    setInterval(savePlaybackState, 5000); // Save every 5 seconds
+    setInterval(savePlaybackState, 5000); // Save playback state every 5 seconds
   }
 
-  // Hook into player events
-  function onPlayerReady(event) {
-    restorePlaybackState(); // Restore playback state on player ready
-    player.setPlaybackRate(2); // Set default playback speed
-    setMaxQuality();
-    updateVideoTimeInfo();
-    monitorPlaybackState(); // Start monitoring state
+  // Initialize the YouTube Player API
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player("player", {
+      videoId: getVideoId(videoQueue[currentVideoIndex]?.url || videoQueue[0].url),
+      playerVars: { controls: 1, modestbranding: 1, rel: 0 },
+      events: {
+        onReady: () => {
+          restorePlaybackState(); // Restore playback state after the player is ready
+          setMaxQuality();
+          monitorPlaybackState(); // Start saving playback state
+        },
+      },
+    });
   }
 
-  // Ensure state is saved when the page is unloaded
+  // Save playback state before leaving or reloading the page
   window.addEventListener("beforeunload", savePlaybackState);
+
+  // Handle page reloads
+  document.addEventListener("DOMContentLoaded", () => {
+    const savedState = JSON.parse(localStorage.getItem("playbackState"));
+    if (savedState) {
+      currentVideoIndex = savedState.videoIndex || 0;
+    } else {
+      currentVideoIndex = 0; // Default to the first video if no state is saved
+    }
+  });
   
   document.addEventListener("keydown", (event) => {
     if (["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown", " "].includes(event.key)) {
