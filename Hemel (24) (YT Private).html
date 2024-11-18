@@ -563,7 +563,7 @@ function onPlayerReady(event) {
   function savePlaybackState() {
     const currentState = {
       videoIndex: currentVideoIndex,
-      currentTime: player.getCurrentTime(),
+      currentTime: player.getCurrentTime()
     };
     localStorage.setItem("playbackState", JSON.stringify(currentState));
   }
@@ -573,34 +573,11 @@ function onPlayerReady(event) {
     const savedState = JSON.parse(localStorage.getItem("playbackState"));
     if (savedState) {
       currentVideoIndex = savedState.videoIndex;
-      const savedTime = savedState.currentTime;
-
       loadVideoAtIndex(currentVideoIndex);
-
-      // Ensure seeking only happens after the player is fully ready
-      player.addEventListener("onStateChange", function handleStateChange(event) {
-        if (event.data === YT.PlayerState.CUED) {
-          player.seekTo(savedTime, true);
-          player.playVideo(); // Optional: Start playback automatically
-          player.removeEventListener("onStateChange", handleStateChange); // Remove listener after seeking
-        }
+      player.addEventListener("onReady", () => {
+        player.seekTo(savedState.currentTime, true);
       });
     }
-  }
-
-  // Hook into player events
-  function onYouTubeIframeAPIReady() {
-    player = new YT.Player("player", {
-      videoId: getVideoId(videoQueue[currentVideoIndex].url),
-      playerVars: { controls: 1, modestbranding: 1, rel: 0 },
-      events: {
-        onReady: () => {
-          restorePlaybackState(); // Restore state once player is ready
-          setMaxQuality();
-          monitorPlaybackState();
-        },
-      },
-    });
   }
 
   // Monitor and save playback state periodically
@@ -608,7 +585,16 @@ function onPlayerReady(event) {
     setInterval(savePlaybackState, 5000); // Save every 5 seconds
   }
 
-  // Save playback state before navigating away
+  // Hook into player events
+  function onPlayerReady(event) {
+    restorePlaybackState(); // Restore playback state on player ready
+    player.setPlaybackRate(2); // Set default playback speed
+    setMaxQuality();
+    updateVideoTimeInfo();
+    monitorPlaybackState(); // Start monitoring state
+  }
+
+  // Ensure state is saved when the page is unloaded
   window.addEventListener("beforeunload", savePlaybackState);
   
   document.addEventListener("keydown", (event) => {
