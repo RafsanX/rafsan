@@ -558,6 +558,44 @@ function onPlayerReady(event) {
   function adjustVolume(change) {
     player.setVolume(Math.min(100, Math.max(0, player.getVolume() + change)));
   }
+
+    // Save the current video index and time in localStorage
+  function savePlaybackState() {
+    const currentState = {
+      videoIndex: currentVideoIndex,
+      currentTime: player.getCurrentTime()
+    };
+    localStorage.setItem("playbackState", JSON.stringify(currentState));
+  }
+
+  // Restore the playback state
+  function restorePlaybackState() {
+    const savedState = JSON.parse(localStorage.getItem("playbackState"));
+    if (savedState) {
+      currentVideoIndex = savedState.videoIndex;
+      loadVideoAtIndex(currentVideoIndex);
+      player.addEventListener("onReady", () => {
+        player.seekTo(savedState.currentTime, true);
+      });
+    }
+  }
+
+  // Monitor and save playback state periodically
+  function monitorPlaybackState() {
+    setInterval(savePlaybackState, 5000); // Save every 5 seconds
+  }
+
+  // Hook into player events
+  function onPlayerReady(event) {
+    restorePlaybackState(); // Restore playback state on player ready
+    player.setPlaybackRate(2); // Set default playback speed
+    setMaxQuality();
+    updateVideoTimeInfo();
+    monitorPlaybackState(); // Start monitoring state
+  }
+
+  // Ensure state is saved when the page is unloaded
+  window.addEventListener("beforeunload", savePlaybackState);
   
   document.addEventListener("keydown", (event) => {
     if (["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown", " "].includes(event.key)) {
