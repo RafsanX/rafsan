@@ -560,6 +560,19 @@ function onPlayerReady(event) {
   }
 
   document.addEventListener("keydown", (event) => {
+    if (["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown", " "].includes(event.key)) {
+      event.preventDefault(); // Stop default browser behavior
+      switch (event.key) {
+        case "ArrowLeft": skip(-10); break;
+        case "ArrowRight": skip(10); break;
+        case "ArrowUp": adjustVolume(5); break;
+        case "ArrowDown": adjustVolume(-5); break;
+        case " ": togglePlayPause(); break;
+      }
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
     if (event.key === "F" || event.key === "f") toggleFullScreen();
     else if (event.key === "M" || event.key === "m") toggleMute();
     else if (event.key === " ") togglePlayPause();
