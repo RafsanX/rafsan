@@ -559,61 +559,75 @@ function onPlayerReady(event) {
     player.setVolume(Math.min(100, Math.max(0, player.getVolume() + change)));
   }
 
-  // Save the current video index and time in localStorage
+  // Save the current video index and playback time to localStorage
   function savePlaybackState() {
-    const currentState = {
-      videoIndex: currentVideoIndex,
-      currentTime: player?.getCurrentTime() || 0, // Handle cases where the player isn't initialized
-    };
-    localStorage.setItem("playbackState", JSON.stringify(currentState));
+    if (player && typeof player.getCurrentTime === "function") {
+      const currentState = {
+        videoIndex: currentVideoIndex,
+        currentTime: player.getCurrentTime(),
+      };
+      localStorage.setItem("playbackState", JSON.stringify(currentState));
+    }
   }
 
-  // Restore the playback state
+  // Restore the playback state from localStorage
   function restorePlaybackState() {
     const savedState = JSON.parse(localStorage.getItem("playbackState"));
     if (savedState) {
-      currentVideoIndex = savedState.videoIndex || 0; // Default to the first video
-      const savedTime = savedState.currentTime || 0;
-
+      currentVideoIndex = savedState.videoIndex || 0;
       loadVideoAtIndex(currentVideoIndex); // Load the saved video
 
       player.addEventListener("onReady", function seekToSavedTime() {
-        player.seekTo(savedTime, true); // Seek to the saved time
-        player.removeEventListener("onReady", seekToSavedTime); // Prevent redundant calls
+        player.seekTo(savedState.currentTime || 0, true); // Seek to the saved time
+        player.removeEventListener("onReady", seekToSavedTime); // Remove listener
       });
     }
   }
 
-  // Monitor and save playback state periodically
-  function monitorPlaybackState() {
-    setInterval(savePlaybackState, 5000); // Save playback state every 5 seconds
-  }
-
-  // Initialize the YouTube Player API
+  // Initialize the YouTube player
   function onYouTubeIframeAPIReady() {
+    const initialVideoId = getVideoId(
+      videoQueue[currentVideoIndex]?.url || videoQueue[0].url
+    );
+
     player = new YT.Player("player", {
-      videoId: getVideoId(videoQueue[currentVideoIndex]?.url || videoQueue[0].url),
+      videoId: initialVideoId,
       playerVars: { controls: 1, modestbranding: 1, rel: 0 },
       events: {
         onReady: () => {
-          restorePlaybackState(); // Restore playback state after the player is ready
-          setMaxQuality();
-          monitorPlaybackState(); // Start saving playback state
+          restorePlaybackState(); // Restore playback state after player is ready
+          monitorPlaybackState(); // Start saving playback state periodically
         },
       },
     });
   }
 
-  // Save playback state before leaving or reloading the page
+  // Monitor and save the playback state every 5 seconds
+  function monitorPlaybackState() {
+    setInterval(savePlaybackState, 5000);
+  }
+
+  // Load the video at a specific index
+  function loadVideoAtIndex(index) {
+    currentVideoIndex = index;
+    const video = videoQueue[index];
+    if (player && video) {
+      player.loadVideoById(getVideoId(video.url));
+      document.getElementById("videoTitle").textContent = video.title;
+      document.getElementById("videoDescription").textContent = video.description;
+    }
+  }
+
+  // Save playback state when the user navigates away or refreshes
   window.addEventListener("beforeunload", savePlaybackState);
 
-  // Handle page reloads
+  // Handle initialization during a refresh
   document.addEventListener("DOMContentLoaded", () => {
     const savedState = JSON.parse(localStorage.getItem("playbackState"));
     if (savedState) {
-      currentVideoIndex = savedState.videoIndex || 0;
+      currentVideoIndex = savedState.videoIndex || 0; // Restore video index
     } else {
-      currentVideoIndex = 0; // Default to the first video if no state is saved
+      currentVideoIndex = 0; // Default to the first video
     }
   });
   
