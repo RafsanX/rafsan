@@ -1,77 +1,216 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
-<style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Homepage</title>
+  <style>
+    :root {
+      --main-bg: #f8f8f8;
+      --card-bg: #ffffff;
+      --accent: #0077cc;
+    }
+
     body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: var(--main-bg);
+      color: #333;
+      overflow-x: hidden; /* prevent horizontal scroll */
+      box-sizing: border-box; /* ensure padding/border inside width */
     }
+
+    /* Apply box-sizing to all elements to be consistent */
+    *, *::before, *::after {
+      box-sizing: inherit;
+    }
+
     header {
-        background-color: #333;
-        color: #fff;
-        padding: 20px;
-        text-align: center;
+      background-color: #222;
+      color: white;
+      padding: 20px 10px;
+      text-align: center;
     }
+
+    nav {
+      background-color: #fff;
+      border-bottom: 1px solid #ccc;
+    }
+
     nav ul {
-        display: flex;
-        justify-content: center;
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      list-style: none;
+      padding: 10px;
+      margin: 0;
+      gap: 10px;
     }
+
     nav ul li {
-        display: inline;
-        margin: 0 10px;
+      margin: 0;
     }
+
     nav ul li a {
-        text-decoration: none;
-        color: #333;
-        padding: 10px 20px;
-        background-color: #fff;
-        border-radius: 5px;
-        transition: background-color 0.3s ease;
+      display: inline-block;
+      text-decoration: none;
+      padding: 8px 15px;
+      background-color: #eaeaea;
+      border-radius: 5px;
+      color: #333;
+      transition: background 0.3s;
+      font-size: 14px;
     }
+
     nav ul li a:hover {
-        background-color: #ddd;
+      background-color: #ccc;
     }
-    section {
-        padding: 20px;
-        text-align: center;
+
+    main {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: var(--card-bg);
+      border-radius: 10px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
     }
+
+    .quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin: 15px 0;
+    }
+
+    .quick-links a {
+      padding: 10px 15px;
+      background-color: #f0f0f0;
+      border-radius: 5px;
+      text-decoration: none;
+      color: #000;
+      transition: background-color 0.3s;
+      font-size: 14px;
+    }
+
+    .quick-links a:hover {
+      background-color: #ddd;
+    }
+
+    input[type="text"] {
+      width: 90%;          /* changed to 90% for responsiveness */
+      max-width: 400px;
+      padding: 10px;
+      margin: 20px auto;
+      display: block;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box; /* include padding in width */
+    }
+
+    .updates {
+      text-align: left;
+      margin-top: 20px;
+    }
+
+    .updates ul {
+      padding-left: 20px;
+    }
+
     footer {
-        background-color: #333;
-        color: #fff;
-        padding: 10px 20px;
-        text-align: center;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
+      text-align: center;
+      padding: 15px;
+      background-color: #222;
+      color: white;
+      margin-top: 40px;
     }
-</style>
+
+    footer a {
+      color: #ccc;
+      text-decoration: underline;
+    }
+
+    /* 📱 Mobile adjustments */
+    @media screen and (max-width: 600px) {
+      header h1 {
+        font-size: 22px;
+      }
+
+      nav ul li a {
+        font-size: 13px;
+        padding: 7px 10px;
+      }
+
+      .quick-links a {
+        font-size: 13px;
+        padding: 8px 12px;
+      }
+
+      main {
+        padding: 15px;
+        margin: 10px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome</h1>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="All Subjects.html">All Subjects</a></li>
-            <li><a href="Routines.html">Routines</a></li>
-            <li><a href="After Admission.html">After Admission</a></li>
-            <li><a href="Combined Practice Sheets.html">Combined Practice Sheets</a></li>
-        </ul>
-    </nav>
 
-    <section>
-        <h2>Home Page</h2>
-    </section>
-    <footer>
-        Rafsan Mahruz Irfan
-    </footer>
+  <header>
+    <h1>Study Resources by Rafsan</h1>
+    <p>Organized | Chapter-wise | Free</p>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="All Subjects.html">All Subjects</a></li>
+      <li><a href="Routines.html">Routines</a></li>
+      <li><a href="After Admission.html">After Admission</a></li>
+      <li><a href="Combined Practice Sheets.html">Practice Sheets</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h2>Welcome!</h2>
+    <p>This website offers chapter-wise study materials, routines, and guides for students. Created and maintained by Rafsan Mahruz Irfan.</p>
+
+    <input type="text" id="searchBox" placeholder="Search a subject...">
+
+    <div class="quick-links" id="linkContainer">
+      <a href="Physics.html">Physics</a>
+      <a href="Chemistry.html">Chemistry</a>
+      <a href="Biology.html">Biology</a>
+      <a href="ICT.html">ICT</a>
+      <a href="English.html">English</a>
+      <a href="Bangla.html">Bangla</a>
+      <a href="HigherMath.html">Higher Math</a>
+    </div>
+
+    <div class="updates">
+      <h3>🟢 Latest Updates</h3>
+      <ul>
+        <li>✅ New Practice Sheets added for 2nd Paper</li>
+        <li>📌 Admission Guidance page updated</li>
+        <li>🕐 Chapter 6 under development</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Rafsan Mahruz Irfan • <a href="mailto:rafsanmahruzirfan111@gmail.com">Contact</a></p>
+  </footer>
+
+  <script>
+    const searchBox = document.getElementById('searchBox');
+    const links = document.querySelectorAll('#linkContainer a');
+
+    searchBox.addEventListener('input', function () {
+      const term = this.value.toLowerCase();
+      links.forEach(link => {
+        link.style.display = link.textContent.toLowerCase().includes(term) ? 'inline-block' : 'none';
+      });
+    });
+  </script>
+
 </body>
 </html>
