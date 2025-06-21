@@ -1,130 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Subjects</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-        }
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-        }
-        nav {
-            background-color: #444;
-            padding: 10px;
-            text-align: center;
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 10px;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        section {
-            padding: 20px;
-            text-align: center;
-        }
-        section a {
-            display: inline-block;
-            margin-bottom: 20px;
-            padding: 10px;
-            background-color: #c40471;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 10px;
-            width: 45%; /* Adjust the width to fit two links in one line */
-            box-sizing: border-box; /* Include padding and border in the width calculation */
-        }
-        section a:hover {
-            background-color: #000;
-        }
-        .papers {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 30px;
-        }
-        .paper-title {
-            flex: 1;
-            margin: 0;
-        }
-        /* Increase space between specific pairs of links */
-        .custom-link:nth-child(odd) {
-            margin-right: 0%;
-        }
-        .custom-link {
-            padding: 15px;
-            height: 48.4px; /* Adjust height as needed */
-            width: 70%; /* Adjust width as needed */
-        }
-        .website-link {
-            display: inline-block;
-            margin-bottom: 20px;
-            padding: 15px;
-            background-color: #c40471;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 10px;
-            height: 48.4px; /* Adjust the height as needed */
-            width: 40%; /* Make the links take full width */
-            box-sizing: border-box; /* Include padding and border in the width calculation */
-        }
-        .website-link1 {
-            display: inline-block;
-            margin-top: 20px;
-            margin-bottom: 20px;
-            padding: 15px;
-            background-color: #c40471;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 10px;
-            height: 48.4px; /* Adjust the height as needed */
-            width: 45%; /* Make the links take full width */
-            box-sizing: border-box; /* Include padding and border in the width calculation */
-        }
-    </style>
-</head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>All Subjects</title>
+  <style>
+    /* Reset & base */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background: #f9fafb;
+      color: #222;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header */
+    header {
+      background-color: #1e293b; /* cool dark blue-gray */
+      padding: 1.5rem;
+      text-align: center;
+      color: #f8fafc;
+      box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+    }
+    header h1 {
+      margin: 0;
+      font-weight: 700;
+      font-size: 1.9rem;
+      letter-spacing: 0.05em;
+    }
+
+    /* Navigation */
+    nav {
+      background-color: #334155; /* slightly lighter than header */
+      padding: 0.1rem 1rem;
+      text-align: center;
+      box-shadow: inset 0 -1px 0 rgb(255 255 255 / 0.1);
+    }
+    nav a {
+      color: #f1f5f9;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      display: inline-block;
+    }
+    nav a:hover,
+    nav a:focus {
+      background-color: #64748b; /* nice purple highlight */
+      color: #1e293b;
+      outline: none;
+    }
+
+    /* Main section */
+    section {
+      flex-grow: 1;
+      max-width: 960px;
+      margin: 2rem auto 3rem;
+      padding: 0 1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+
+    /* Subject buttons */
+    section a {
+      background: white;
+      color: #334155;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.1rem;
+      padding: 1.25rem 0;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgb(0 0 0 / 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      user-select: none;
+    }
+    section a:hover,
+    section a:focus {
+      background-color: #243242; /* soft purple */
+      color: white;
+      box-shadow: 0 6px 12px rgb(167 139 250 / 0.6);
+      transform: translateY(-4px);
+      outline: none;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 480px) {
+      section {
+        grid-template-columns: repeat(2, 1fr);
+        margin: 1.5rem 1rem 2rem;
+        gap: 1rem;
+      }
+      nav a {
+        font-size: 0.9rem;
+        padding: 0.5rem 0.75rem;
+      }
+      section a {
+        font-size: 1rem;
+        padding: 1rem 0;
+
+      }
+    }
+section a.wide {
+  grid-column: 1 / -1; /* Span all columns */
+  justify-self: center; /* Center inside the full row */
+  max-width: 300px;
+  width: 100%;
+}
+
+  </style>
 </head>
 <body>
-    <header>
-        <h1>All Subjects</h1>
-    <nav>
-        <a href="Homepage.html">Homepage</a>
-    </nav>
-    </header>
-    <section>
-       <div class="lecture-group">
-                <a class="website-link1" href="Bangla 1st.html">Bangla 1st</a>
-                <a class="website-link1" href="Bangla 2nd.html">Bangla 2nd</a>
-        </div>
-        <div class="lecture-group">
-                <a class="website-link" href="English 1st.html">English 1st</a>
-                <a class="website-link" href="English 2nd.html">English 2nd</a>
-        </div>
-        <div class="lecture-group">
-                <a class="custom-link" href="ICT.html">ICT</a>
-        </div>
-        <div class="lecture-group">
-            <a class="custom-link" href="Higher Math.html">Higher Math</a>
-        </div>
-        <div class="lecture-group">
-                <a class="custom-link" href="Physics.html">Physics</a>
-        </div>
-        <div class="lecture-group">
-                <a class="custom-link" href="Chemistry.html">Chemistry</a>
-        </div>
-        <div class="lecture-group">
-                <a class="custom-link" href="Biology.html">Biology</a>
-        </div>
-    </section>
+
+  <header>
+    <h1>All Subjects</h1>
+  </header>
+
+  <nav>
+    <a href="Homepage.html" aria-label="Go to homepage">Homepage</a>
+  </nav>
+
+  <section>
+    <a href="Higher Math.html">Higher Math</a>
+    <a href="Physics.html">Physics</a>
+    <a href="Chemistry.html">Chemistry</a>
+    <a href="Biology.html">Biology</a>
+    <a href="Bangla 1st.html">Bangla 1st</a>
+    <a href="Bangla 2nd.html">Bangla 2nd</a>
+    <a href="English 1st.html">English 1st</a>
+    <a href="English 2nd.html">English 2nd</a>
+    <a href="ICT.html" class="wide">ICT</a>
+  </section>
+
 </body>
 </html>
