@@ -11,16 +11,22 @@
       --accent: #0077cc;
     }
 
-    body {
-      font-family: Arial, sans-serif;
+    html, body {
+      height: 100%;
       margin: 0;
-      background-color: var(--main-bg);
-      color: #333;
-      overflow-x: hidden; /* prevent horizontal scroll */
-      box-sizing: border-box; /* ensure padding/border inside width */
+      padding: 0;
     }
 
-    /* Apply box-sizing to all elements to be consistent */
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      background-color: var(--main-bg);
+      color: #333;
+      overflow-x: hidden;
+      box-sizing: border-box;
+    }
+
     *, *::before, *::after {
       box-sizing: inherit;
     }
@@ -47,10 +53,6 @@
       gap: 10px;
     }
 
-    nav ul li {
-      margin: 0;
-    }
-
     nav ul li a {
       display: inline-block;
       text-decoration: none;
@@ -67,12 +69,21 @@
     }
 
     main {
+      flex: 1;
       max-width: 900px;
       margin: 20px auto;
       padding: 20px;
       background-color: var(--card-bg);
       border-radius: 10px;
       box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+      position: relative;
+    }
+
+    /* Spacer to push footer down below viewport */
+    main::after {
+      content: "";
+      display: block;
+      height: 100px; /* adjust this to increase/decrease scroll space */
     }
 
     .quick-links {
@@ -98,14 +109,13 @@
     }
 
     input[type="text"] {
-      width: 90%;          /* changed to 90% for responsiveness */
+      width: 90%;
       max-width: 400px;
       padding: 10px;
       margin: 20px auto;
       display: block;
       border: 1px solid #ccc;
       border-radius: 5px;
-      box-sizing: border-box; /* include padding in width */
     }
 
     .updates {
@@ -165,7 +175,6 @@
       <li><a href="All Subjects.html">🗂 All Subjects</a></li>
       <li><a href="Routines.html">⏰ Routines</a></li>
       <li><a href="After Admission.html">🎓 After Admission</a></li>
-      <li><a href="Combined Practice Sheets.html">📄 Practice Sheets</a></li>
     </ul>
   </nav>
 
@@ -176,15 +185,15 @@
     <input type="text" id="searchBox" placeholder="🔍 Search a subject...">
 
     <div class="quick-links" id="linkContainer">
-      <a href="Higher Math.html">📐 Higher Math</a>
-      <a href="Physics.html">🧲 Physics</a>
-      <a href="Chemistry.html">🧪 Chemistry</a>
-      <a href="Biology.html">🧬 Biology</a>
-      <a href="ICT.html">💻 ICT</a>
-      <a href="English 1st.html">📘 English 1st</a>
-      <a href="English 2nd.html">📙 English 2nd</a>
-      <a href="Bangla 1st.html">📕 Bangla 1st</a>
-      <a href="Bangla 2nd.html">📗 Bangla 2nd</a>
+      <a href="Higher Math.html" style="display:none">📐 Higher Math</a>
+      <a href="Physics.html" style="display:none">🧲 Physics</a>
+      <a href="Chemistry.html" style="display:none">🧪 Chemistry</a>
+      <a href="Biology.html" style="display:none">🧬 Biology</a>
+      <a href="ICT.html" style="display:none">💻 ICT</a>
+      <a href="English 1st.html" style="display:none">📘 English 1st</a>
+      <a href="English 2nd.html" style="display:none">📙 English 2nd</a>
+      <a href="Bangla 1st.html" style="display:none">📕 Bangla 1st</a>
+      <a href="Bangla 2nd.html" style="display:none">📗 Bangla 2nd</a>
     </div>
 
     <div class="updates">
@@ -198,7 +207,10 @@
   </main>
 
   <footer>
-    <p>&copy; 2025 Rafsan Mahruz Irfan • <a href="mailto:rafsanmahruzirfan111@gmail.com">Contact</a></p>
+    <p>&copy; 2025 Rafsan Mahruz Irfan • 
+      <a href="mailto:rafsanmahruzirfan111@gmail.com">Contact</a> • 
+      <a href="https://yourserver.com/edit-page" target="_blank">✏️ Edit</a>
+    </p>
   </footer>
 
   <script>
@@ -207,8 +219,13 @@
 
     searchBox.addEventListener('input', function () {
       const term = this.value.toLowerCase();
+
       links.forEach(link => {
-        link.style.display = link.textContent.toLowerCase().includes(term) ? 'inline-block' : 'none';
+        if (term === "") {
+          link.style.display = "none";
+        } else {
+          link.style.display = link.textContent.toLowerCase().includes(term) ? "inline-block" : "none";
+        }
       });
     });
   </script>
