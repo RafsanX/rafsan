@@ -214,22 +214,6 @@
     </p>
   </footer>
 
-  <script>
-    const searchBox = document.getElementById('searchBox');
-    const links = document.querySelectorAll('#linkContainer a');
-
-    searchBox.addEventListener('input', function () {
-      const term = this.value.toLowerCase();
-
-      links.forEach(link => {
-        if (term === "") {
-          link.style.display = "none";
-        } else {
-          link.style.display = link.textContent.toLowerCase().includes(term) ? "inline-block" : "none";
-        }
-      });
-    });
-  </script>
-
 </body>
 </html>
+
